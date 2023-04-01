@@ -7,6 +7,7 @@ using System.Security.Policy;
 using static DotSpatial.Data.AttributeCache;
 using System.IO;
 using System.Data;
+using DotSpatial.Controls;
 
 namespace PolaPSDAPulauLombok
 {
@@ -26,8 +27,30 @@ namespace PolaPSDAPulauLombok
             String spatial = database + "\\Spatial";
             //  MessageBox.Show(resourcesPath);
             InitializeComponent();
-            ILayer batasAdmin = map1.AddLayer(spatial + "\\Administrasi\\pulau_lombok.shp");
-            ILayer geologi = map1.AddLayer(spatial + "\\geologi\\pulau_lombok.shp");
+
+            IMapLayer batasAdmin = map1.Layers.Add(spatial + "\\Administrasi\\pulau_lombok.shp");
+            IMapLayer geologi = map1.AddLayer(spatial + "\\geologi\\pulau_lombok.shp");
+            /*DataTable dt = new DataTable();
+           dt = geologi.DataSet;
+           dataGridView1.DataSource = dt;*/
+            //Declare a datatable
+            System.Data.DataTable dt = null;
+            if (map1.Layers.Count > 0)
+            {
+                MapPolygonLayer stateLayer = default(MapPolygonLayer);
+                stateLayer = (MapPolygonLayer)map1.Layers[1];
+                if (stateLayer == null)
+                {
+                    MessageBox.Show("The layer is not a polygon layer.");
+                }
+                else
+                {
+                    //Get the shapefile's attribute table to our datatable dt
+                    dt = stateLayer.DataSet.DataTable;
+                    //Set the datagridview datasource from datatable dt
+                    dataGridView1.DataSource = dt;
+                }
+            }
         }
 
         private void kryptonRibbon1_SelectedTabChanged(object sender, EventArgs e)
