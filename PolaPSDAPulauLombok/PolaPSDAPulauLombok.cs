@@ -17,6 +17,7 @@ namespace PolaPSDAPulauLombok
 
         string activeLayer;
         MapPolygonLayer stateLayer = default(MapPolygonLayer);
+        MapLineLayer stateLayer2 = default(MapLineLayer);
 
         public PolaPSDAPulauLombok()
 
@@ -26,12 +27,18 @@ namespace PolaPSDAPulauLombok
             String resourcesPath = projectPath + "\\resources";
             String database = resourcesPath + "\\database";
             String spatial = database + "\\Spatial";
-           
+            String adminPath = spatial + "\\Administrasi\\administrasi.shp";
+            String sungaiPath = spatial + "\\Sungai\\sungai.shp";
+            String geologiPath = spatial + "\\geologi\\geologi.shp";
+
+
 
 
             InitializeComponent();
-            IMapLayer batasAdmin = map1.Layers.Add(spatial + "\\Administrasi\\administrasi.shp");
-            IMapLayer geologi = map1.AddLayer(spatial + "\\geologi\\geologi.shp");
+            IMapLayer batasAdmin = map1.Layers.Add(adminPath);
+            IMapLayer geologi = map1.AddLayer(geologiPath);
+            IMapLayer sungai = map1.AddLayer(sungaiPath);
+
             activeLayer = geologi.DataSet.Name;
             int i = 0;
             while (i < map1.Layers.Count)
@@ -98,16 +105,30 @@ namespace PolaPSDAPulauLombok
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // DataTable table = selectedLayer.Dataset.Datatable;
+        
 
         }
 
         private void cmbAttributeTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-           stateLayer = (MapPolygonLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
-            DataTable dt = null;
-            dt = stateLayer.DataSet.DataTable;
-            dataGridView1.DataSource = dt;
+            MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
+            if ("" + map1.Layers[cmbAttributeTable.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer" ) {
+                stateLayer = (MapPolygonLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
+                DataTable dt = null;
+                dt = stateLayer.DataSet.DataTable;
+                dataGridView1.DataSource = dt;
+            MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
+            }
+            else if ("" + map1.Layers[cmbAttributeTable.SelectedIndex] == "DotSpatial.Controls.MapLineLayer")
+            {
+                stateLayer2 = (MapLineLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
+                DataTable dt = null;
+                dt = stateLayer2.DataSet.DataTable;
+                dataGridView1.DataSource = dt;
+                MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
+            }
+            else { 
+           }
         }
     }
 }
