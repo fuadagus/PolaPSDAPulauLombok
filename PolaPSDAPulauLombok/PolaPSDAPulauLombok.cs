@@ -18,6 +18,7 @@ namespace PolaPSDAPulauLombok
         string activeLayer;
         MapPolygonLayer stateLayer = default(MapPolygonLayer);
         MapLineLayer stateLayer2 = default(MapLineLayer);
+        MapPointLayer stateLayer3 = default(MapPointLayer);
 
         public PolaPSDAPulauLombok()
 
@@ -118,6 +119,10 @@ namespace PolaPSDAPulauLombok
             }
             else
             {
+                stateLayer3 = (MapPointLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
+                DataTable dt = null;
+                dt = stateLayer2.DataSet.DataTable;
+                dataGridView1.DataSource = dt;
 
             }
         }
@@ -193,7 +198,19 @@ namespace PolaPSDAPulauLombok
             else
             {
 
+                stateLayer3 = (MapPointLayer)map1.Layers[cmbMapFilter.SelectedIndex];
 
+                DataTable dt;
+
+                dt = stateLayer2.DataSet.DataTable;
+
+                int i = 0;
+                while (i < dt.Columns.Count)
+                {
+
+                    cmbColumnFilter.Items.Insert(i, dt.Columns[i].ColumnName);
+                    i++;
+                }
 
 
             }
