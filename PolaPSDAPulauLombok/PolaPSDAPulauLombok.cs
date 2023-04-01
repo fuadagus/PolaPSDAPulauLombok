@@ -15,7 +15,8 @@ namespace PolaPSDAPulauLombok
     public partial class PolaPSDAPulauLombok : Form
     {
 
-
+        string activeLayer;
+        MapPolygonLayer stateLayer = default(MapPolygonLayer);
 
         public PolaPSDAPulauLombok()
 
@@ -25,32 +26,45 @@ namespace PolaPSDAPulauLombok
             String resourcesPath = projectPath + "\\resources";
             String database = resourcesPath + "\\database";
             String spatial = database + "\\Spatial";
-            //  MessageBox.Show(resourcesPath);
-            InitializeComponent();
+           
 
-            IMapLayer batasAdmin = map1.Layers.Add(spatial + "\\Administrasi\\pulau_lombok.shp");
-            IMapLayer geologi = map1.AddLayer(spatial + "\\geologi\\pulau_lombok.shp");
-            /*DataTable dt = new DataTable();
-           dt = geologi.DataSet;
-           dataGridView1.DataSource = dt;*/
+
+            InitializeComponent();
+            IMapLayer batasAdmin = map1.Layers.Add(spatial + "\\Administrasi\\administrasi.shp");
+            IMapLayer geologi = map1.AddLayer(spatial + "\\geologi\\geologi.shp");
+            activeLayer = geologi.DataSet.Name;
+            int i = 0;
+            while (i < map1.Layers.Count)
+            {
+                cmbAttributeTable.Items.Insert(i, map1.Layers[i].DataSet.Name);
+                i++;
+             }
+
+
             //Declare a datatable
             System.Data.DataTable dt = null;
-            if (map1.Layers.Count > 0)
-            {
-                MapPolygonLayer stateLayer = default(MapPolygonLayer);
-                stateLayer = (MapPolygonLayer)map1.Layers[1];
-                if (stateLayer == null)
-                {
-                    MessageBox.Show("The layer is not a polygon layer.");
-                }
-                else
-                {
-                    //Get the shapefile's attribute table to our datatable dt
-                    dt = stateLayer.DataSet.DataTable;
-                    //Set the datagridview datasource from datatable dt
-                    dataGridView1.DataSource = dt;
-                }
-            }
+       
+            stateLayer = (MapPolygonLayer)map1.Layers[1];
+            dt = stateLayer.DataSet.DataTable;
+            //Set the datagridview datasource from datatable dt
+            dataGridView1.DataSource = dt;
+
+            /*  if (map1.Layers.Count > 0)
+              {
+                  MapPolygonLayer stateLayer = default(MapPolygonLayer);
+                  stateLayer = (MapPolygonLayer)map1.Layers[1];
+                  if (stateLayer == null)
+                  {
+                      MessageBox.Show("The layer is not a polygon layer.");
+                  }
+                  else
+                  {
+                      //Get the shapefile's attribute table to our datatable dt
+                      dt = stateLayer.DataSet.DataTable;
+                      //Set the datagridview datasource from datatable dt
+                      dataGridView1.DataSource = dt;
+                  }
+              */
         }
 
         private void kryptonRibbon1_SelectedTabChanged(object sender, EventArgs e)
@@ -84,8 +98,16 @@ namespace PolaPSDAPulauLombok
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           // DataTable table = selectedLayer.Dataset.Datatable;
+            // DataTable table = selectedLayer.Dataset.Datatable;
 
+        }
+
+        private void cmbAttributeTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           stateLayer = (MapPolygonLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
+            DataTable dt = null;
+            dt = stateLayer.DataSet.DataTable;
+            dataGridView1.DataSource = dt;
         }
     }
 }

@@ -53,9 +53,13 @@
             map1 = new DotSpatial.Controls.Map();
             tabPage8 = new TabPage();
             dataGridView1 = new DataGridView();
+            cmbAttributeTable = new ComboBox();
+            comboBox2 = new ComboBox();
+            lblCmbTable = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
+            tabPage2.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -104,7 +108,7 @@
             groupBox1.Size = new Size(563, 97);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Zoom";
             // 
             // button1
             // 
@@ -156,6 +160,9 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(lblCmbTable);
+            tabPage2.Controls.Add(comboBox2);
+            tabPage2.Controls.Add(cmbAttributeTable);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -351,6 +358,33 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // cmbAttributeTable
+            // 
+            cmbAttributeTable.FormattingEnabled = true;
+            cmbAttributeTable.Location = new Point(94, 6);
+            cmbAttributeTable.Name = "cmbAttributeTable";
+            cmbAttributeTable.Size = new Size(203, 23);
+            cmbAttributeTable.TabIndex = 0;
+            cmbAttributeTable.Text = "Pilih data atribut yang ditampilkan";
+            cmbAttributeTable.SelectedIndexChanged += cmbAttributeTable_SelectedIndexChanged;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(94, 35);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(203, 23);
+            comboBox2.TabIndex = 1;
+            // 
+            // lblCmbTable
+            // 
+            lblCmbTable.AutoSize = true;
+            lblCmbTable.Location = new Point(8, 9);
+            lblCmbTable.Name = "lblCmbTable";
+            lblCmbTable.Size = new Size(74, 15);
+            lblCmbTable.TabIndex = 2;
+            lblCmbTable.Text = "Tabel Atribut";
+            // 
             // PolaPSDAPulauLombok
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -366,6 +400,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -408,5 +444,8 @@
         private DotSpatial.Controls.Map map1;
         private TabPage tabPage8;
         private DataGridView dataGridView1;
+        private Label lblCmbTable;
+        private ComboBox comboBox2;
+        private ComboBox cmbAttributeTable;
     }
 }
