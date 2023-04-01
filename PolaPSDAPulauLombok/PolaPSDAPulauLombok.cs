@@ -45,33 +45,17 @@ namespace PolaPSDAPulauLombok
             {
                 cmbAttributeTable.Items.Insert(i, map1.Layers[i].DataSet.Name);
                 i++;
-             }
+            }
 
 
             //Declare a datatable
             System.Data.DataTable dt = null;
-       
+
             stateLayer = (MapPolygonLayer)map1.Layers[1];
             dt = stateLayer.DataSet.DataTable;
             //Set the datagridview datasource from datatable dt
             dataGridView1.DataSource = dt;
 
-            /*  if (map1.Layers.Count > 0)
-              {
-                  MapPolygonLayer stateLayer = default(MapPolygonLayer);
-                  stateLayer = (MapPolygonLayer)map1.Layers[1];
-                  if (stateLayer == null)
-                  {
-                      MessageBox.Show("The layer is not a polygon layer.");
-                  }
-                  else
-                  {
-                      //Get the shapefile's attribute table to our datatable dt
-                      dt = stateLayer.DataSet.DataTable;
-                      //Set the datagridview datasource from datatable dt
-                      dataGridView1.DataSource = dt;
-                  }
-              */
         }
 
         private void kryptonRibbon1_SelectedTabChanged(object sender, EventArgs e)
@@ -105,19 +89,21 @@ namespace PolaPSDAPulauLombok
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+
 
         }
 
         private void cmbAttributeTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
-            if ("" + map1.Layers[cmbAttributeTable.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer" ) {
+            //Memilih tabel atribut melalui combobox
+            // MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]); => hiraukan komen in saya gunakan untuk mendebug
+            if ("" + map1.Layers[cmbAttributeTable.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer")
+            {
                 stateLayer = (MapPolygonLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
                 DataTable dt = null;
                 dt = stateLayer.DataSet.DataTable;
                 dataGridView1.DataSource = dt;
-            MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
+                //MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]); => hiraukan komen in saya gunakan untuk mendebug
             }
             else if ("" + map1.Layers[cmbAttributeTable.SelectedIndex] == "DotSpatial.Controls.MapLineLayer")
             {
@@ -125,10 +111,27 @@ namespace PolaPSDAPulauLombok
                 DataTable dt = null;
                 dt = stateLayer2.DataSet.DataTable;
                 dataGridView1.DataSource = dt;
-                MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);
+                //MessageBox.Show("" + map1.Layers[cmbAttributeTable.SelectedIndex]);  => hiraukan komen in saya gunakan untuk mendebug
             }
-            else { 
-           }
+            else
+            {
+
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
