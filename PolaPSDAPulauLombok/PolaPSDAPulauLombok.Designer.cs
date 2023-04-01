@@ -45,6 +45,7 @@
             button4 = new Button();
             button2 = new Button();
             tabPage2 = new TabPage();
+            label9 = new Label();
             button10 = new Button();
             checkedListBox1 = new CheckedListBox();
             textBox2 = new TextBox();
@@ -58,6 +59,8 @@
             tabPage3 = new TabPage();
             tabPage4 = new TabPage();
             groupBox3 = new GroupBox();
+            button20 = new Button();
+            button19 = new Button();
             label6 = new Label();
             label5 = new Label();
             textBox5 = new TextBox();
@@ -66,10 +69,17 @@
             textBox4 = new TextBox();
             textBox1 = new TextBox();
             groupBox2 = new GroupBox();
+            button18 = new Button();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            label8 = new Label();
+            textBox9 = new TextBox();
+            textBox7 = new TextBox();
             valueFilter = new ComboBox();
-            mapFilter = new ComboBox();
-            columnFilter = new ComboBox();
+            cmbMapFilter = new ComboBox();
+            cmbColumnFilter = new ComboBox();
             tabPage9 = new TabPage();
+            label7 = new Label();
             button17 = new Button();
             groupBox10 = new GroupBox();
             button14 = new Button();
@@ -98,16 +108,6 @@
             map1 = new DotSpatial.Controls.Map();
             tabPage8 = new TabPage();
             dataGridView1 = new DataGridView();
-            label7 = new Label();
-            label9 = new Label();
-            textBox7 = new TextBox();
-            textBox9 = new TextBox();
-            label8 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            button18 = new Button();
-            button19 = new Button();
-            button20 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -326,6 +326,15 @@
             tabPage2.Text = "Data";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(282, 13);
+            label9.Name = "label9";
+            label9.Size = new Size(55, 15);
+            label9.TabIndex = 11;
+            label9.Text = "Basemap";
+            // 
             // button10
             // 
             button10.Image = (Image)resources.GetObject("button10.Image");
@@ -458,6 +467,24 @@
             groupBox3.Text = "Search";
             groupBox3.Enter += groupBox3_Enter;
             // 
+            // button20
+            // 
+            button20.Location = new Point(317, 78);
+            button20.Name = "button20";
+            button20.Size = new Size(55, 23);
+            button20.TabIndex = 16;
+            button20.Text = "Search";
+            button20.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            button19.Location = new Point(316, 22);
+            button19.Name = "button19";
+            button19.Size = new Size(55, 23);
+            button19.TabIndex = 15;
+            button19.Text = "Search";
+            button19.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -524,8 +551,8 @@
             groupBox2.Controls.Add(textBox9);
             groupBox2.Controls.Add(textBox7);
             groupBox2.Controls.Add(valueFilter);
-            groupBox2.Controls.Add(mapFilter);
-            groupBox2.Controls.Add(columnFilter);
+            groupBox2.Controls.Add(cmbMapFilter);
+            groupBox2.Controls.Add(cmbColumnFilter);
             groupBox2.Dock = DockStyle.Left;
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
@@ -533,6 +560,58 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
+            // 
+            // button18
+            // 
+            button18.Location = new Point(273, 51);
+            button18.Name = "button18";
+            button18.Size = new Size(55, 52);
+            button18.TabIndex = 14;
+            button18.Text = "Filter";
+            button18.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(14, 81);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(61, 19);
+            radioButton2.TabIndex = 13;
+            radioButton2.Text = "Range:";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(14, 55);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(56, 19);
+            radioButton1.TabIndex = 12;
+            radioButton1.Text = "Value:";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(179, 83);
+            label8.Name = "label8";
+            label8.Size = new Size(18, 15);
+            label8.TabIndex = 8;
+            label8.Text = "to";
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(203, 80);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(64, 23);
+            textBox9.TabIndex = 9;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(114, 80);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(59, 23);
+            textBox7.TabIndex = 8;
             // 
             // valueFilter
             // 
@@ -543,23 +622,24 @@
             valueFilter.TabIndex = 7;
             valueFilter.Text = "Data value";
             // 
-            // mapFilter
+            // cmbMapFilter
             // 
-            mapFilter.FormattingEnabled = true;
-            mapFilter.Location = new Point(6, 22);
-            mapFilter.Name = "mapFilter";
-            mapFilter.Size = new Size(102, 23);
-            mapFilter.TabIndex = 5;
-            mapFilter.Text = "Map layer";
+            cmbMapFilter.FormattingEnabled = true;
+            cmbMapFilter.Location = new Point(6, 22);
+            cmbMapFilter.Name = "cmbMapFilter";
+            cmbMapFilter.Size = new Size(102, 23);
+            cmbMapFilter.TabIndex = 5;
+            cmbMapFilter.Text = "Map layer";
+            cmbMapFilter.SelectedIndexChanged += mapFilter_SelectedIndexChanged;
             // 
-            // columnFilter
+            // cmbColumnFilter
             // 
-            columnFilter.FormattingEnabled = true;
-            columnFilter.Location = new Point(114, 22);
-            columnFilter.Name = "columnFilter";
-            columnFilter.Size = new Size(214, 23);
-            columnFilter.TabIndex = 6;
-            columnFilter.Text = "Attribute column";
+            cmbColumnFilter.FormattingEnabled = true;
+            cmbColumnFilter.Location = new Point(114, 22);
+            cmbColumnFilter.Name = "cmbColumnFilter";
+            cmbColumnFilter.Size = new Size(214, 23);
+            cmbColumnFilter.TabIndex = 6;
+            cmbColumnFilter.Text = "Attribute column";
             // 
             // tabPage9
             // 
@@ -575,6 +655,15 @@
             tabPage9.TabIndex = 4;
             tabPage9.Text = "Edit";
             tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(13, 13);
+            label7.Name = "label7";
+            label7.Size = new Size(31, 15);
+            label7.TabIndex = 13;
+            label7.Text = "Data";
             // 
             // button17
             // 
@@ -800,7 +889,7 @@
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(250, 217);
+            tabPage6.Size = new Size(250, 209);
             tabPage6.TabIndex = 1;
             tabPage6.Text = "Base Map";
             tabPage6.UseVisualStyleBackColor = true;
@@ -856,7 +945,7 @@
             tabPage8.Location = new Point(4, 24);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(505, 217);
+            tabPage8.Size = new Size(505, 209);
             tabPage8.TabIndex = 1;
             tabPage8.Text = "Attribute Table";
             tabPage8.UseVisualStyleBackColor = true;
@@ -868,97 +957,9 @@
             dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(499, 211);
+            dataGridView1.Size = new Size(499, 203);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(13, 13);
-            label7.Name = "label7";
-            label7.Size = new Size(31, 15);
-            label7.TabIndex = 13;
-            label7.Text = "Data";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(282, 13);
-            label9.Name = "label9";
-            label9.Size = new Size(55, 15);
-            label9.TabIndex = 11;
-            label9.Text = "Basemap";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(114, 80);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(59, 23);
-            textBox7.TabIndex = 8;
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(203, 80);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(64, 23);
-            textBox9.TabIndex = 9;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(179, 83);
-            label8.Name = "label8";
-            label8.Size = new Size(18, 15);
-            label8.TabIndex = 8;
-            label8.Text = "to";
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(14, 55);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(56, 19);
-            radioButton1.TabIndex = 12;
-            radioButton1.Text = "Value:";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(14, 81);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(61, 19);
-            radioButton2.TabIndex = 13;
-            radioButton2.Text = "Range:";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            button18.Location = new Point(273, 51);
-            button18.Name = "button18";
-            button18.Size = new Size(55, 52);
-            button18.TabIndex = 14;
-            button18.Text = "Filter";
-            button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            button19.Location = new Point(316, 22);
-            button19.Name = "button19";
-            button19.Size = new Size(55, 23);
-            button19.TabIndex = 15;
-            button19.Text = "Search";
-            button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            button20.Location = new Point(317, 77);
-            button20.Name = "button20";
-            button20.Size = new Size(55, 23);
-            button20.TabIndex = 16;
-            button20.Text = "Search";
-            button20.UseVisualStyleBackColor = true;
             // 
             // PolaPSDAPulauLombok
             // 
@@ -1043,8 +1044,8 @@
         private GroupBox groupBox4;
         private GroupBox groupBox3;
         private GroupBox groupBox2;
-        private ComboBox mapFilter;
-        private ComboBox columnFilter;
+        private ComboBox cmbMapFilter;
+        private ComboBox cmbColumnFilter;
         private GroupBox groupBox5;
         private Button button7;
         private Button button5;

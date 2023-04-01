@@ -44,8 +44,11 @@ namespace PolaPSDAPulauLombok
             while (i < map1.Layers.Count)
             {
                 cmbAttributeTable.Items.Insert(i, map1.Layers[i].DataSet.Name);
+                cmbMapFilter.Items.Insert(i, map1.Layers[i].DataSet.Name);
                 i++;
             }
+
+
 
 
             //Declare a datatable
@@ -147,6 +150,53 @@ namespace PolaPSDAPulauLombok
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void mapFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer")
+            {
+                stateLayer = (MapPolygonLayer)map1.Layers[cmbMapFilter.SelectedIndex];
+
+                DataTable dt;
+
+                dt = stateLayer.DataSet.DataTable;
+
+                int i = 0;
+                while (i < dt.Columns.Count)
+                {
+
+                    cmbColumnFilter.Items.Insert(i, dt.Columns[i].ColumnName);
+                    i++;
+                }
+                
+            }
+            else if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapLineLayer")
+            {
+                stateLayer2 = (MapLineLayer)map1.Layers[cmbMapFilter.SelectedIndex];
+
+                DataTable dt;
+
+                dt = stateLayer2.DataSet.DataTable;
+
+                int i = 0;
+                while (i < dt.Columns.Count)
+                {
+
+                    cmbColumnFilter.Items.Insert(i, dt.Columns[i].ColumnName);
+                    i++;
+                }
+                
+            }
+            else
+            {
+
+
+
+
+            }
         }
     }
 }
