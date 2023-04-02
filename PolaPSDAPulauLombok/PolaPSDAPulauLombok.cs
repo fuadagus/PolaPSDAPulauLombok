@@ -8,6 +8,7 @@ using static DotSpatial.Data.AttributeCache;
 using System.IO;
 using System.Data;
 using DotSpatial.Controls;
+using System.Windows.Documents;
 
 namespace PolaPSDAPulauLombok
 {
@@ -19,6 +20,10 @@ namespace PolaPSDAPulauLombok
         MapPolygonLayer stateLayer = default(MapPolygonLayer);
         MapLineLayer stateLayer2 = default(MapLineLayer);
         MapPointLayer stateLayer3 = default(MapPointLayer);
+        //Declare a datatable
+        System.Data.DataTable dt = null;
+        DataRow[] selectedRowData;
+
 
         public PolaPSDAPulauLombok()
 
@@ -31,6 +36,7 @@ namespace PolaPSDAPulauLombok
             String adminPath = spatial + "\\Administrasi\\administrasi.shp";
             String sungaiPath = spatial + "\\Sungai\\sungai.shp";
             String geologiPath = spatial + "\\geologi\\geologi.shp";
+            String mataAirPath = spatial + "\\SebaranMataAir\\sebaran_mata_air.shp";
 
 
 
@@ -39,6 +45,7 @@ namespace PolaPSDAPulauLombok
             IMapLayer batasAdmin = map1.Layers.Add(adminPath);
             IMapLayer geologi = map1.AddLayer(geologiPath);
             IMapLayer sungai = map1.AddLayer(sungaiPath);
+            IMapLayer mataAir = map1.AddLayer(mataAirPath);
 
             activeLayer = geologi.DataSet.Name;
             int i = 0;
@@ -52,13 +59,12 @@ namespace PolaPSDAPulauLombok
 
 
 
-            //Declare a datatable
-            System.Data.DataTable dt = null;
-
+            
             stateLayer = (MapPolygonLayer)map1.Layers[1];
             dt = stateLayer.DataSet.DataTable;
             //Set the datagridview datasource from datatable dt
             dataGridView1.DataSource = dt;
+
 
         }
 
@@ -121,7 +127,7 @@ namespace PolaPSDAPulauLombok
             {
                 stateLayer3 = (MapPointLayer)map1.Layers[cmbAttributeTable.SelectedIndex];
                 DataTable dt = null;
-                dt = stateLayer2.DataSet.DataTable;
+                dt = stateLayer3.DataSet.DataTable;
                 dataGridView1.DataSource = dt;
 
             }
@@ -159,13 +165,12 @@ namespace PolaPSDAPulauLombok
 
         private void mapFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cmbColumnFilter.Items.Clear();
 
             if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer")
             {
                 stateLayer = (MapPolygonLayer)map1.Layers[cmbMapFilter.SelectedIndex];
 
-                DataTable dt;
 
                 dt = stateLayer.DataSet.DataTable;
 
@@ -176,13 +181,11 @@ namespace PolaPSDAPulauLombok
                     cmbColumnFilter.Items.Insert(i, dt.Columns[i].ColumnName);
                     i++;
                 }
-                
+
             }
             else if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapLineLayer")
             {
                 stateLayer2 = (MapLineLayer)map1.Layers[cmbMapFilter.SelectedIndex];
-
-                DataTable dt;
 
                 dt = stateLayer2.DataSet.DataTable;
 
@@ -193,16 +196,14 @@ namespace PolaPSDAPulauLombok
                     cmbColumnFilter.Items.Insert(i, dt.Columns[i].ColumnName);
                     i++;
                 }
-                
+
             }
             else
             {
 
                 stateLayer3 = (MapPointLayer)map1.Layers[cmbMapFilter.SelectedIndex];
 
-                DataTable dt;
-
-                dt = stateLayer2.DataSet.DataTable;
+                dt = stateLayer3.DataSet.DataTable;
 
                 int i = 0;
                 while (i < dt.Columns.Count)
@@ -214,6 +215,97 @@ namespace PolaPSDAPulauLombok
 
 
             }
+        }
+
+        private void cmbColumnFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbValueFilter.Items.Clear();
+          
+            if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapPolygonLayer")
+            {
+                stateLayer = (MapPolygonLayer)map1.Layers[cmbMapFilter.SelectedIndex];
+                dt = stateLayer.DataSet.DataTable;
+                string columnSelected = cmbColumnFilter.SelectedItem.ToString();
+                string columnNameSelected = dt.Columns[columnSelected].ColumnName;
+                DataRow[] allRows = dt.Select();
+                List<string> columnData = new List<string>();
+                foreach (DataRow row in allRows)
+                {
+                    string columnValue = row[columnNameSelected].ToString();
+                    columnData.Add(columnValue);
+                }
+                var uniqueValue = columnData.Distinct().ToList();
+                int i = 0;
+                while (i < uniqueValue.Count)
+                {
+                    cmbValueFilter.Items.Insert(i, uniqueValue[i]);
+                    i++;
+                }
+            }
+            else if ("" + map1.Layers[cmbMapFilter.SelectedIndex] == "DotSpatial.Controls.MapLineLayer")
+            {
+                stateLayer2 = (MapLineLayer)map1.Layers[cmbMapFilter.SelectedIndex];
+                dt = stateLayer2.DataSet.DataTable;
+                string columnSelected = cmbColumnFilter.SelectedItem.ToString();
+                String columnNameSelected = dt.Columns[columnSelected].ColumnName;
+                DataRow[] allRows = dt.Select();
+                List<String> columnData = new List<String>();
+                foreach (DataRow row in allRows)
+                {
+                    String columnValue = row[columnNameSelected].ToString();
+                    columnData.Add(columnValue);
+                }
+                var uniqueValue = columnData.Distinct().ToList();
+                int i = 0;
+                while (i < uniqueValue.Count)
+                {
+                    cmbValueFilter.Items.Insert(i, uniqueValue[i]);
+                    i++;
+                }
+
+            }
+            else
+            {
+
+                stateLayer3 = (MapPointLayer)map1.Layers[cmbMapFilter.SelectedIndex];
+                dt = stateLayer3.DataSet.DataTable;
+                string columnSelected = cmbColumnFilter.SelectedItem.ToString();
+                string columnNameSelected = dt.Columns[columnSelected].ColumnName;
+                DataRow[] allRows = dt.Select();
+                List<String> columnData = new List<String>();
+                foreach (DataRow row in allRows)
+                {
+                    String columnValue = row[columnNameSelected].ToString();
+                    columnData.Add(columnValue);
+                }
+                var uniqueValue = columnData.Distinct().ToList();
+                int i = 0;
+                while (i < uniqueValue.Count)
+                {
+                    cmbValueFilter.Items.Insert(i, uniqueValue[i]);
+                    i++;
+                }
+
+
+            }
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbValueFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {      
+            string filterOperand = cmbColumnFilter.Text + "=" + "\'" + cmbValueFilter.Text + "\'";
+            selectedRowData = dt.Select(filterOperand);
+            DataTable filteredTable = dt.Clone();
+            foreach (DataRow row in selectedRowData)
+            {
+                filteredTable.ImportRow(row);
+            }
+            dataGridView1.DataSource = filteredTable;
         }
     }
 }

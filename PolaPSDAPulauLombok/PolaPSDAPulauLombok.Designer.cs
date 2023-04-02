@@ -75,7 +75,7 @@
             label8 = new Label();
             textBox9 = new TextBox();
             textBox7 = new TextBox();
-            valueFilter = new ComboBox();
+            cmbValueFilter = new ComboBox();
             cmbMapFilter = new ComboBox();
             cmbColumnFilter = new ComboBox();
             tabPage9 = new TabPage();
@@ -550,7 +550,7 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(textBox9);
             groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(valueFilter);
+            groupBox2.Controls.Add(cmbValueFilter);
             groupBox2.Controls.Add(cmbMapFilter);
             groupBox2.Controls.Add(cmbColumnFilter);
             groupBox2.Dock = DockStyle.Left;
@@ -560,6 +560,7 @@
             groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // button18
             // 
@@ -613,14 +614,15 @@
             textBox7.Size = new Size(59, 23);
             textBox7.TabIndex = 8;
             // 
-            // valueFilter
+            // cmbValueFilter
             // 
-            valueFilter.FormattingEnabled = true;
-            valueFilter.Location = new Point(114, 51);
-            valueFilter.Name = "valueFilter";
-            valueFilter.Size = new Size(153, 23);
-            valueFilter.TabIndex = 7;
-            valueFilter.Text = "Data value";
+            cmbValueFilter.FormattingEnabled = true;
+            cmbValueFilter.Location = new Point(114, 51);
+            cmbValueFilter.Name = "cmbValueFilter";
+            cmbValueFilter.Size = new Size(153, 23);
+            cmbValueFilter.TabIndex = 7;
+            cmbValueFilter.Text = "Data value";
+            cmbValueFilter.SelectedIndexChanged += cmbValueFilter_SelectedIndexChanged;
             // 
             // cmbMapFilter
             // 
@@ -640,6 +642,7 @@
             cmbColumnFilter.Size = new Size(214, 23);
             cmbColumnFilter.TabIndex = 6;
             cmbColumnFilter.Text = "Attribute column";
+            cmbColumnFilter.SelectedIndexChanged += cmbColumnFilter_SelectedIndexChanged;
             // 
             // tabPage9
             // 
@@ -1062,7 +1065,7 @@
         private CheckedListBox checkedListBox1;
         private TextBox textBox2;
         private TextBox textBox4;
-        private ComboBox valueFilter;
+        private ComboBox cmbValueFilter;
         private Label label6;
         private Label label5;
         private TextBox textBox5;
