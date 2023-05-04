@@ -20,7 +20,6 @@ C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.CopyComplete
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.exe
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.pdb
-C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.g.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.Core.dll
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.Databases.dll
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.ShapeEditor.dll

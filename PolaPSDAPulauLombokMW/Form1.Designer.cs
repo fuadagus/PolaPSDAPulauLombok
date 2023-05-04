@@ -87,22 +87,10 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonGroupButton18 = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton19 = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.TabPage_Basemap = new System.Windows.Forms.TabPage();
-            this.Basemap_MapQuestAerial = new System.Windows.Forms.RadioButton();
-            this.Basemap_Rosreestr = new System.Windows.Forms.RadioButton();
-            this.Basemap_HereTerrain = new System.Windows.Forms.RadioButton();
-            this.Basemap_HereHybrid = new System.Windows.Forms.RadioButton();
-            this.Basemap_HereSatellite = new System.Windows.Forms.RadioButton();
-            this.Basemap_HereMaps = new System.Windows.Forms.RadioButton();
             this.Basemap_GoogleTerrain = new System.Windows.Forms.RadioButton();
             this.Basemap_GoogleHybrid = new System.Windows.Forms.RadioButton();
-            this.Basemap_GoogleSatellite = new System.Windows.Forms.RadioButton();
             this.Basemap_GoogleMaps = new System.Windows.Forms.RadioButton();
-            this.Basemap_BingHybrid = new System.Windows.Forms.RadioButton();
-            this.Basemap_BingSatellite = new System.Windows.Forms.RadioButton();
-            this.Basemap_BingMaps = new System.Windows.Forms.RadioButton();
-            this.Basemap_OpenTransportMap = new System.Windows.Forms.RadioButton();
             this.Basemap_OpenCycleMap = new System.Windows.Forms.RadioButton();
-            this.Basemap_OpenStreetMap = new System.Windows.Forms.RadioButton();
             this.Basemap_None = new System.Windows.Forms.RadioButton();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.SplitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -309,7 +297,7 @@ namespace PolaPSDAPulauLombokMW
             this.DataGridView1.Name = "DataGridView1";
             this.DataGridView1.RowHeadersWidth = 62;
             this.DataGridView1.RowTemplate.Height = 28;
-            this.DataGridView1.Size = new System.Drawing.Size(599, 349);
+            this.DataGridView1.Size = new System.Drawing.Size(599, 405);
             this.DataGridView1.TabIndex = 0;
             // 
             // lblXY
@@ -326,7 +314,7 @@ namespace PolaPSDAPulauLombokMW
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblXY,
             this.ToolStripProgressBar1});
-            this.StatusStrip1.Location = new System.Drawing.Point(0, 499);
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 555);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(919, 23);
@@ -504,7 +492,7 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Map.Location = new System.Drawing.Point(4, 22);
             this.TabPage_Map.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Map.Name = "TabPage_Map";
-            this.TabPage_Map.Size = new System.Drawing.Size(603, 353);
+            this.TabPage_Map.Size = new System.Drawing.Size(603, 409);
             this.TabPage_Map.TabIndex = 2;
             this.TabPage_Map.Text = "Map";
             this.TabPage_Map.UseVisualStyleBackColor = true;
@@ -516,7 +504,7 @@ namespace PolaPSDAPulauLombokMW
             this.axMap1.Location = new System.Drawing.Point(0, 0);
             this.axMap1.Name = "axMap1";
             this.axMap1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMap1.OcxState")));
-            this.axMap1.Size = new System.Drawing.Size(603, 353);
+            this.axMap1.Size = new System.Drawing.Size(603, 409);
             this.axMap1.TabIndex = 0;
             // 
             // kryptonRibbonGroupButton18
@@ -531,108 +519,24 @@ namespace PolaPSDAPulauLombokMW
             // 
             // TabPage_Basemap
             // 
-            this.TabPage_Basemap.Controls.Add(this.Basemap_MapQuestAerial);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_Rosreestr);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_HereTerrain);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_HereHybrid);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_HereSatellite);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_HereMaps);
             this.TabPage_Basemap.Controls.Add(this.Basemap_GoogleTerrain);
             this.TabPage_Basemap.Controls.Add(this.Basemap_GoogleHybrid);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_GoogleSatellite);
             this.TabPage_Basemap.Controls.Add(this.Basemap_GoogleMaps);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_BingHybrid);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_BingSatellite);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_BingMaps);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_OpenTransportMap);
             this.TabPage_Basemap.Controls.Add(this.Basemap_OpenCycleMap);
-            this.TabPage_Basemap.Controls.Add(this.Basemap_OpenStreetMap);
             this.TabPage_Basemap.Controls.Add(this.Basemap_None);
             this.TabPage_Basemap.Location = new System.Drawing.Point(4, 22);
             this.TabPage_Basemap.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Basemap.Name = "TabPage_Basemap";
             this.TabPage_Basemap.Padding = new System.Windows.Forms.Padding(2);
-            this.TabPage_Basemap.Size = new System.Drawing.Size(297, 353);
+            this.TabPage_Basemap.Size = new System.Drawing.Size(297, 409);
             this.TabPage_Basemap.TabIndex = 1;
             this.TabPage_Basemap.Text = "Basemap";
             this.TabPage_Basemap.UseVisualStyleBackColor = true;
             // 
-            // Basemap_MapQuestAerial
-            // 
-            this.Basemap_MapQuestAerial.AutoSize = true;
-            this.Basemap_MapQuestAerial.Location = new System.Drawing.Point(5, 322);
-            this.Basemap_MapQuestAerial.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_MapQuestAerial.Name = "Basemap_MapQuestAerial";
-            this.Basemap_MapQuestAerial.Size = new System.Drawing.Size(106, 17);
-            this.Basemap_MapQuestAerial.TabIndex = 16;
-            this.Basemap_MapQuestAerial.TabStop = true;
-            this.Basemap_MapQuestAerial.Text = "Map Quest Aerial";
-            this.Basemap_MapQuestAerial.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_Rosreestr
-            // 
-            this.Basemap_Rosreestr.AutoSize = true;
-            this.Basemap_Rosreestr.Location = new System.Drawing.Point(5, 302);
-            this.Basemap_Rosreestr.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_Rosreestr.Name = "Basemap_Rosreestr";
-            this.Basemap_Rosreestr.Size = new System.Drawing.Size(70, 17);
-            this.Basemap_Rosreestr.TabIndex = 15;
-            this.Basemap_Rosreestr.TabStop = true;
-            this.Basemap_Rosreestr.Text = "Rosreestr";
-            this.Basemap_Rosreestr.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_HereTerrain
-            // 
-            this.Basemap_HereTerrain.AutoSize = true;
-            this.Basemap_HereTerrain.Location = new System.Drawing.Point(6, 283);
-            this.Basemap_HereTerrain.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_HereTerrain.Name = "Basemap_HereTerrain";
-            this.Basemap_HereTerrain.Size = new System.Drawing.Size(84, 17);
-            this.Basemap_HereTerrain.TabIndex = 14;
-            this.Basemap_HereTerrain.TabStop = true;
-            this.Basemap_HereTerrain.Text = "Here Terrain";
-            this.Basemap_HereTerrain.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_HereHybrid
-            // 
-            this.Basemap_HereHybrid.AutoSize = true;
-            this.Basemap_HereHybrid.Location = new System.Drawing.Point(5, 263);
-            this.Basemap_HereHybrid.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_HereHybrid.Name = "Basemap_HereHybrid";
-            this.Basemap_HereHybrid.Size = new System.Drawing.Size(81, 17);
-            this.Basemap_HereHybrid.TabIndex = 13;
-            this.Basemap_HereHybrid.TabStop = true;
-            this.Basemap_HereHybrid.Text = "Here Hybrid";
-            this.Basemap_HereHybrid.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_HereSatellite
-            // 
-            this.Basemap_HereSatellite.AutoSize = true;
-            this.Basemap_HereSatellite.Location = new System.Drawing.Point(5, 240);
-            this.Basemap_HereSatellite.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_HereSatellite.Name = "Basemap_HereSatellite";
-            this.Basemap_HereSatellite.Size = new System.Drawing.Size(88, 17);
-            this.Basemap_HereSatellite.TabIndex = 12;
-            this.Basemap_HereSatellite.TabStop = true;
-            this.Basemap_HereSatellite.Text = "Here Satellite";
-            this.Basemap_HereSatellite.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_HereMaps
-            // 
-            this.Basemap_HereMaps.AutoSize = true;
-            this.Basemap_HereMaps.Location = new System.Drawing.Point(5, 221);
-            this.Basemap_HereMaps.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_HereMaps.Name = "Basemap_HereMaps";
-            this.Basemap_HereMaps.Size = new System.Drawing.Size(77, 17);
-            this.Basemap_HereMaps.TabIndex = 11;
-            this.Basemap_HereMaps.TabStop = true;
-            this.Basemap_HereMaps.Text = "Here Maps";
-            this.Basemap_HereMaps.UseVisualStyleBackColor = true;
-            // 
             // Basemap_GoogleTerrain
             // 
             this.Basemap_GoogleTerrain.AutoSize = true;
-            this.Basemap_GoogleTerrain.Location = new System.Drawing.Point(6, 201);
+            this.Basemap_GoogleTerrain.Location = new System.Drawing.Point(5, 88);
             this.Basemap_GoogleTerrain.Margin = new System.Windows.Forms.Padding(2);
             this.Basemap_GoogleTerrain.Name = "Basemap_GoogleTerrain";
             this.Basemap_GoogleTerrain.Size = new System.Drawing.Size(95, 17);
@@ -640,11 +544,12 @@ namespace PolaPSDAPulauLombokMW
             this.Basemap_GoogleTerrain.TabStop = true;
             this.Basemap_GoogleTerrain.Text = "Google Terrain";
             this.Basemap_GoogleTerrain.UseVisualStyleBackColor = true;
+            this.Basemap_GoogleTerrain.CheckedChanged += new System.EventHandler(this.Basemap_GoogleTerrain_CheckedChanged);
             // 
             // Basemap_GoogleHybrid
             // 
             this.Basemap_GoogleHybrid.AutoSize = true;
-            this.Basemap_GoogleHybrid.Location = new System.Drawing.Point(6, 182);
+            this.Basemap_GoogleHybrid.Location = new System.Drawing.Point(5, 67);
             this.Basemap_GoogleHybrid.Margin = new System.Windows.Forms.Padding(2);
             this.Basemap_GoogleHybrid.Name = "Basemap_GoogleHybrid";
             this.Basemap_GoogleHybrid.Size = new System.Drawing.Size(92, 17);
@@ -652,23 +557,12 @@ namespace PolaPSDAPulauLombokMW
             this.Basemap_GoogleHybrid.TabStop = true;
             this.Basemap_GoogleHybrid.Text = "Google Hybrid";
             this.Basemap_GoogleHybrid.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_GoogleSatellite
-            // 
-            this.Basemap_GoogleSatellite.AutoSize = true;
-            this.Basemap_GoogleSatellite.Location = new System.Drawing.Point(5, 160);
-            this.Basemap_GoogleSatellite.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_GoogleSatellite.Name = "Basemap_GoogleSatellite";
-            this.Basemap_GoogleSatellite.Size = new System.Drawing.Size(99, 17);
-            this.Basemap_GoogleSatellite.TabIndex = 8;
-            this.Basemap_GoogleSatellite.TabStop = true;
-            this.Basemap_GoogleSatellite.Text = "Google Satellite";
-            this.Basemap_GoogleSatellite.UseVisualStyleBackColor = true;
+            this.Basemap_GoogleHybrid.CheckedChanged += new System.EventHandler(this.Basemap_GoogleHybrid_CheckedChanged);
             // 
             // Basemap_GoogleMaps
             // 
             this.Basemap_GoogleMaps.AutoSize = true;
-            this.Basemap_GoogleMaps.Location = new System.Drawing.Point(5, 140);
+            this.Basemap_GoogleMaps.Location = new System.Drawing.Point(5, 46);
             this.Basemap_GoogleMaps.Margin = new System.Windows.Forms.Padding(2);
             this.Basemap_GoogleMaps.Name = "Basemap_GoogleMaps";
             this.Basemap_GoogleMaps.Size = new System.Drawing.Size(88, 17);
@@ -676,59 +570,12 @@ namespace PolaPSDAPulauLombokMW
             this.Basemap_GoogleMaps.TabStop = true;
             this.Basemap_GoogleMaps.Text = "Google Maps";
             this.Basemap_GoogleMaps.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_BingHybrid
-            // 
-            this.Basemap_BingHybrid.AutoSize = true;
-            this.Basemap_BingHybrid.Location = new System.Drawing.Point(6, 121);
-            this.Basemap_BingHybrid.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_BingHybrid.Name = "Basemap_BingHybrid";
-            this.Basemap_BingHybrid.Size = new System.Drawing.Size(79, 17);
-            this.Basemap_BingHybrid.TabIndex = 6;
-            this.Basemap_BingHybrid.TabStop = true;
-            this.Basemap_BingHybrid.Text = "Bing Hybrid";
-            this.Basemap_BingHybrid.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_BingSatellite
-            // 
-            this.Basemap_BingSatellite.AutoSize = true;
-            this.Basemap_BingSatellite.Location = new System.Drawing.Point(5, 101);
-            this.Basemap_BingSatellite.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_BingSatellite.Name = "Basemap_BingSatellite";
-            this.Basemap_BingSatellite.Size = new System.Drawing.Size(86, 17);
-            this.Basemap_BingSatellite.TabIndex = 5;
-            this.Basemap_BingSatellite.TabStop = true;
-            this.Basemap_BingSatellite.Text = "Bing Satellite";
-            this.Basemap_BingSatellite.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_BingMaps
-            // 
-            this.Basemap_BingMaps.AutoSize = true;
-            this.Basemap_BingMaps.Location = new System.Drawing.Point(5, 82);
-            this.Basemap_BingMaps.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_BingMaps.Name = "Basemap_BingMaps";
-            this.Basemap_BingMaps.Size = new System.Drawing.Size(75, 17);
-            this.Basemap_BingMaps.TabIndex = 4;
-            this.Basemap_BingMaps.TabStop = true;
-            this.Basemap_BingMaps.Text = "Bing Maps";
-            this.Basemap_BingMaps.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_OpenTransportMap
-            // 
-            this.Basemap_OpenTransportMap.AutoSize = true;
-            this.Basemap_OpenTransportMap.Location = new System.Drawing.Point(5, 62);
-            this.Basemap_OpenTransportMap.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_OpenTransportMap.Name = "Basemap_OpenTransportMap";
-            this.Basemap_OpenTransportMap.Size = new System.Drawing.Size(123, 17);
-            this.Basemap_OpenTransportMap.TabIndex = 3;
-            this.Basemap_OpenTransportMap.TabStop = true;
-            this.Basemap_OpenTransportMap.Text = "Open Transport Map";
-            this.Basemap_OpenTransportMap.UseVisualStyleBackColor = true;
+            this.Basemap_GoogleMaps.CheckedChanged += new System.EventHandler(this.Basemap_GoogleMaps_CheckedChanged);
             // 
             // Basemap_OpenCycleMap
             // 
             this.Basemap_OpenCycleMap.AutoSize = true;
-            this.Basemap_OpenCycleMap.Location = new System.Drawing.Point(5, 43);
+            this.Basemap_OpenCycleMap.Location = new System.Drawing.Point(5, 25);
             this.Basemap_OpenCycleMap.Margin = new System.Windows.Forms.Padding(2);
             this.Basemap_OpenCycleMap.Name = "Basemap_OpenCycleMap";
             this.Basemap_OpenCycleMap.Size = new System.Drawing.Size(104, 17);
@@ -736,18 +583,7 @@ namespace PolaPSDAPulauLombokMW
             this.Basemap_OpenCycleMap.TabStop = true;
             this.Basemap_OpenCycleMap.Text = "Open Cycle Map";
             this.Basemap_OpenCycleMap.UseVisualStyleBackColor = true;
-            // 
-            // Basemap_OpenStreetMap
-            // 
-            this.Basemap_OpenStreetMap.AutoSize = true;
-            this.Basemap_OpenStreetMap.Location = new System.Drawing.Point(5, 23);
-            this.Basemap_OpenStreetMap.Margin = new System.Windows.Forms.Padding(2);
-            this.Basemap_OpenStreetMap.Name = "Basemap_OpenStreetMap";
-            this.Basemap_OpenStreetMap.Size = new System.Drawing.Size(106, 17);
-            this.Basemap_OpenStreetMap.TabIndex = 1;
-            this.Basemap_OpenStreetMap.TabStop = true;
-            this.Basemap_OpenStreetMap.Text = "Open Street Map";
-            this.Basemap_OpenStreetMap.UseVisualStyleBackColor = true;
+            this.Basemap_OpenCycleMap.CheckedChanged += new System.EventHandler(this.Basemap_OpenCycleMap_CheckedChanged);
             // 
             // Basemap_None
             // 
@@ -770,7 +606,7 @@ namespace PolaPSDAPulauLombokMW
             this.TabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(305, 379);
+            this.TabControl1.Size = new System.Drawing.Size(305, 435);
             this.TabControl1.TabIndex = 0;
             // 
             // SplitContainer1
@@ -787,7 +623,7 @@ namespace PolaPSDAPulauLombokMW
             // SplitContainer1.Panel2
             // 
             this.SplitContainer1.Panel2.Controls.Add(this.TabControl2);
-            this.SplitContainer1.Size = new System.Drawing.Size(919, 379);
+            this.SplitContainer1.Size = new System.Drawing.Size(919, 435);
             this.SplitContainer1.SplitterDistance = 305;
             this.SplitContainer1.SplitterWidth = 3;
             this.SplitContainer1.TabIndex = 10;
@@ -801,7 +637,7 @@ namespace PolaPSDAPulauLombokMW
             this.TabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl2.Name = "TabControl2";
             this.TabControl2.SelectedIndex = 0;
-            this.TabControl2.Size = new System.Drawing.Size(611, 379);
+            this.TabControl2.Size = new System.Drawing.Size(611, 435);
             this.TabControl2.TabIndex = 0;
             // 
             // TabPage_Attribute
@@ -811,7 +647,7 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Attribute.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Attribute.Name = "TabPage_Attribute";
             this.TabPage_Attribute.Padding = new System.Windows.Forms.Padding(2);
-            this.TabPage_Attribute.Size = new System.Drawing.Size(603, 353);
+            this.TabPage_Attribute.Size = new System.Drawing.Size(603, 409);
             this.TabPage_Attribute.TabIndex = 1;
             this.TabPage_Attribute.Text = "Attribute";
             this.TabPage_Attribute.UseVisualStyleBackColor = true;
@@ -1014,7 +850,6 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonTab_Analyst,
             this.KryptonRibbonTab_Report,
             this.KryptonRibbonTab_Help});
-            this.KryptonRibbon1.SelectedContext = null;
             this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_View;
             this.KryptonRibbon1.Size = new System.Drawing.Size(919, 143);
             this.KryptonRibbon1.TabIndex = 8;
@@ -1049,18 +884,21 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupButton_NormalMode.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
             this.KryptonRibbonGroupButton_NormalMode.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_NormalMode.ImageLarge")));
             this.KryptonRibbonGroupButton_NormalMode.TextLine1 = "Normal";
+            this.KryptonRibbonGroupButton_NormalMode.Click += new System.EventHandler(this.KryptonRibbonGroupButton_NormalMode_Click);
             // 
             // KryptonRibbonGroupButton_ZoomInMode
             // 
             this.KryptonRibbonGroupButton_ZoomInMode.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
             this.KryptonRibbonGroupButton_ZoomInMode.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_ZoomInMode.ImageLarge")));
             this.KryptonRibbonGroupButton_ZoomInMode.TextLine1 = "Zoom In";
+            this.KryptonRibbonGroupButton_ZoomInMode.Click += new System.EventHandler(this.KryptonRibbonGroupButton_ZoomInMode_Click);
             // 
             // KryptonRibbonGroupButton_ZoomOutMode
             // 
             this.KryptonRibbonGroupButton_ZoomOutMode.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
             this.KryptonRibbonGroupButton_ZoomOutMode.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_ZoomOutMode.ImageLarge")));
             this.KryptonRibbonGroupButton_ZoomOutMode.TextLine1 = "Zoom Out";
+            this.KryptonRibbonGroupButton_ZoomOutMode.Click += new System.EventHandler(this.KryptonRibbonGroupButton_ZoomOutMode_Click);
             // 
             // KryptonRibbonGroupTriple2
             // 
@@ -1072,6 +910,7 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupButton_PanMode.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
             this.KryptonRibbonGroupButton_PanMode.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_PanMode.ImageLarge")));
             this.KryptonRibbonGroupButton_PanMode.TextLine1 = "Pan";
+            this.KryptonRibbonGroupButton_PanMode.Click += new System.EventHandler(this.KryptonRibbonGroupButton_PanMode_Click);
             // 
             // KryptonRibbonGroup_Zooming
             // 
@@ -1092,16 +931,19 @@ namespace PolaPSDAPulauLombokMW
             // 
             this.KryptonRibbonGroupButton_ZoomIn.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_ZoomIn.ImageLarge")));
             this.KryptonRibbonGroupButton_ZoomIn.TextLine1 = "Zoom In";
+            this.KryptonRibbonGroupButton_ZoomIn.Click += new System.EventHandler(this.KryptonRibbonGroupButton_ZoomIn_Click);
             // 
             // KryptonRibbonGroupButton_ZoomOut
             // 
             this.KryptonRibbonGroupButton_ZoomOut.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_ZoomOut.ImageLarge")));
             this.KryptonRibbonGroupButton_ZoomOut.TextLine1 = "Zoom Out";
+            this.KryptonRibbonGroupButton_ZoomOut.Click += new System.EventHandler(this.KryptonRibbonGroupButton_ZoomOut_Click);
             // 
             // KryptonRibbonGroupButton_FullExtent
             // 
             this.KryptonRibbonGroupButton_FullExtent.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_FullExtent.ImageLarge")));
             this.KryptonRibbonGroupButton_FullExtent.TextLine1 = "Full Extent";
+            this.KryptonRibbonGroupButton_FullExtent.Click += new System.EventHandler(this.KryptonRibbonGroupButton_FullExtent_Click);
             // 
             // KryptonRibbonGroupTriple4
             // 
@@ -1112,6 +954,7 @@ namespace PolaPSDAPulauLombokMW
             // 
             this.KryptonRibbonGroupButton_Preview.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_Preview.ImageLarge")));
             this.KryptonRibbonGroupButton_Preview.TextLine1 = "Preview";
+            this.KryptonRibbonGroupButton_Preview.Click += new System.EventHandler(this.KryptonRibbonGroupButton_Preview_Click);
             // 
             // KryptonRibbonTab_Edit
             // 
@@ -1223,7 +1066,7 @@ namespace PolaPSDAPulauLombokMW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 522);
+            this.ClientSize = new System.Drawing.Size(919, 578);
             this.Controls.Add(this.StatusStrip1);
             this.Controls.Add(this.SplitContainer1);
             this.Controls.Add(this.KryptonRibbon1);
@@ -1307,22 +1150,10 @@ namespace PolaPSDAPulauLombokMW
         internal Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton18;
         internal Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton19;
         internal System.Windows.Forms.TabPage TabPage_Basemap;
-        private System.Windows.Forms.RadioButton Basemap_MapQuestAerial;
-        private System.Windows.Forms.RadioButton Basemap_Rosreestr;
-        private System.Windows.Forms.RadioButton Basemap_HereTerrain;
-        private System.Windows.Forms.RadioButton Basemap_HereHybrid;
-        private System.Windows.Forms.RadioButton Basemap_HereSatellite;
-        private System.Windows.Forms.RadioButton Basemap_HereMaps;
         private System.Windows.Forms.RadioButton Basemap_GoogleTerrain;
         private System.Windows.Forms.RadioButton Basemap_GoogleHybrid;
-        private System.Windows.Forms.RadioButton Basemap_GoogleSatellite;
         private System.Windows.Forms.RadioButton Basemap_GoogleMaps;
-        private System.Windows.Forms.RadioButton Basemap_BingHybrid;
-        private System.Windows.Forms.RadioButton Basemap_BingSatellite;
-        private System.Windows.Forms.RadioButton Basemap_BingMaps;
-        private System.Windows.Forms.RadioButton Basemap_OpenTransportMap;
         private System.Windows.Forms.RadioButton Basemap_OpenCycleMap;
-        private System.Windows.Forms.RadioButton Basemap_OpenStreetMap;
         private System.Windows.Forms.RadioButton Basemap_None;
         internal System.Windows.Forms.TabControl TabControl1;
         internal System.Windows.Forms.SplitContainer SplitContainer1;

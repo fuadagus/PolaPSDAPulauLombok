@@ -105,54 +105,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\x86\Debug\Resources\database\NonSpatial\Icon\principlesremotesensing.pdf" />
     <None Include="bin\x86\Debug\Resources\database\NonSpatial\Photo\Geologi\1-s2.0-S1367912020301127-gr16.sml" />
-    <Resource Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\administrasi.dbf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\administrasi.prj">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\administrasi.shp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\administrasi.shx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.cpg" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.dbf" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.prj" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.sbn" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.sbx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.shp" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.shx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.cpg" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.dbf" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.prj" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.sbn" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.sbx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.shp" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.shx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.cpg" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.dbf" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.prj" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.sbn" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.sbx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.shp" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.shx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.cpg" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.dbf" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.prj" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.sbn" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.sbx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.shp" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.shx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.cpg" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.dbf" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.prj" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.sbn" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.sbx" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.shp" />
-    <None Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.shx" />
     <None Include="bin\x86\Debug\Resources\database\Spatial\Geologi\geologi.dbf" />
     <None Include="bin\x86\Debug\Resources\database\Spatial\Geologi\geologi.prj" />
     <None Include="bin\x86\Debug\Resources\database\Spatial\Geologi\geologi.shp" />
@@ -1705,8 +1659,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\" />
     <Folder Include="bin\x86\Debug\Resources\database\Spatial\Pemerintahan\" />
     <Folder Include="obj\x86\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxMapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\x86\Debug\Resources\database\NonSpatial\Icon\area-measure.png" />
@@ -1751,11 +1734,6 @@
     <Content Include="bin\x86\Debug\Resources\database\NonSpatial\Icon\zoom-out.png" />
     <Content Include="bin\x86\Debug\Resources\database\NonSpatial\Icon\zoom-selection.png" />
     <Content Include="bin\x86\Debug\Resources\database\NonSpatial\Photo\Geologi\alluvium.jpg" />
-    <Content Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\kota_mataram.shp.xml" />
-    <Content Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_barat.shp.xml" />
-    <Content Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_tengah.shp.xml" />
-    <Content Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_timur.shp.xml" />
-    <Content Include="bin\x86\Debug\Resources\database\Spatial\Administrasi\lombok_utara.shp.xml" />
     <Content Include="bin\x86\Debug\Resources\database\Spatial\Geologi\kota_mataram\geologi_ar_100k_kota_mataram.shp.xml" />
     <Content Include="bin\x86\Debug\Resources\database\Spatial\Geologi\lombok_barat\geologi_ar_100k_lombok_barat.shp.xml" />
     <Content Include="bin\x86\Debug\Resources\database\Spatial\Geologi\lombok_barat\geostructure_ln_100k_lombok_barat.shp.xml" />
@@ -1973,35 +1951,6 @@
     <Content Include="bin\x86\Debug\Resources\database\Spatial\LombokUtara\RBI25K_TOPONIMI_PT.shp.xml" />
     <Content Include="bin\x86\Debug\Resources\database\Spatial\Lombok\RBI25K_ADMINISTRASI_AR.shp.xml" />
     <Content Include="bin\x86\Debug\Resources\database\Spatial\Lombok\RBI25K_ADMINISTRASI_LN.shp.xml" />
-    <Content Include="bin\x86\Debug\Resources\database\NonSpatial\Icon\image-removebg-preview %286%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AxMapWinGIS">
-      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
-      <VersionMajor>4</VersionMajor>
-      <VersionMinor>9</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MapWinGIS">
-      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
-      <VersionMajor>4</VersionMajor>
-      <VersionMinor>9</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="stdole">
-      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
