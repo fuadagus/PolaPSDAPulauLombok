@@ -53,12 +53,33 @@ namespace PolaPSDAPulauLombokMW
             // Define an array of shapefile paths
             string[] shapefilePaths = new string[] { admSHPPath, geoSHPPath, sungaiSHPPath, mataAirSHPPath };
 
-           
-                // Open the shapefile and create a Shapefile object
-                MapWinGIS.Shapefile adminShapefile = fileManager.OpenShapefile(admSHPPath, null);
 
-                // Check if the shapefile was opened successfully
-                if (adminShapefile == null)
+
+
+
+            // Open the shapefile and create a Shapefile object
+            MapWinGIS.Shapefile adminShapefile = fileManager.OpenShapefile(admSHPPath, null);
+
+
+
+            Table table = adminShapefile.Table;
+
+            int fieldIndex = table.FieldIndexByName["NAMOBJ"];
+
+            // create visualization categories
+            adminShapefile.DefaultDrawingOptions.FillType = tkFillType.ftStandard;
+            adminShapefile.Categories.Generate(fieldIndex, tkClassificationType.ctUniqueValues, 5);
+            adminShapefile.Categories.ApplyExpressions();
+
+            // apply color scheme
+            var scheme = new ColorScheme();
+            scheme.SetColors2(tkMapColor.Red, tkMapColor.LightYellow);
+            adminShapefile.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeRandom, scheme);
+
+
+            map.AddLayer(adminShapefile, true);
+            // Check if the shapefile was opened successfully
+            if (adminShapefile == null)
                 {
                     // Handle the error
                     MessageBox.Show("Maaf data tidak di temukan");
@@ -80,8 +101,10 @@ namespace PolaPSDAPulauLombokMW
                     map.Redraw();
                 }
 
+                
 
-            //}
+
+            
 
             
 
