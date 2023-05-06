@@ -27,3 +27,4 @@ C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.MainForm.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.PopUpForm.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.CredentialForm.resources
+C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.AddPointForm.resources

@@ -43,9 +43,9 @@ namespace PolaPSDAPulauLombokMW
             this.lblLokasi = new System.Windows.Forms.Label();
             this.lblNamaKantor = new System.Windows.Forms.Label();
             this.lblKode = new System.Windows.Forms.Label();
-            this.lblInformasi = new System.Windows.Forms.Label();
             this.cboCAT = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,10 +53,10 @@ namespace PolaPSDAPulauLombokMW
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(51, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(51, 58);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 196);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 172);
             this.pictureBox1.TabIndex = 63;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -187,16 +187,6 @@ namespace PolaPSDAPulauLombokMW
             this.lblKode.TabIndex = 45;
             this.lblKode.Text = "Debit Air";
             // 
-            // lblInformasi
-            // 
-            this.lblInformasi.AutoSize = true;
-            this.lblInformasi.Location = new System.Drawing.Point(180, 9);
-            this.lblInformasi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInformasi.Name = "lblInformasi";
-            this.lblInformasi.Size = new System.Drawing.Size(66, 13);
-            this.lblInformasi.TabIndex = 44;
-            this.lblInformasi.Text = "INFORMASI";
-            // 
             // cboCAT
             // 
             this.cboCAT.FormattingEnabled = true;
@@ -222,11 +212,23 @@ namespace PolaPSDAPulauLombokMW
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(116, 22);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(223, 20);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "Informasi Sumber Mata Air";
+            // 
             // PopUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 513);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboCAT);
             this.Controls.Add(this.pictureBox1);
@@ -243,7 +245,6 @@ namespace PolaPSDAPulauLombokMW
             this.Controls.Add(this.lblLokasi);
             this.Controls.Add(this.lblNamaKantor);
             this.Controls.Add(this.lblKode);
-            this.Controls.Add(this.lblInformasi);
             this.Name = "PopUpForm";
             this.Text = "Informasi Mata Air";
             this.Load += new System.EventHandler(this.FormPopUp_Load);
@@ -268,8 +269,8 @@ namespace PolaPSDAPulauLombokMW
         internal System.Windows.Forms.Label lblLokasi;
         internal System.Windows.Forms.Label lblNamaKantor;
         internal System.Windows.Forms.Label lblKode;
-        internal System.Windows.Forms.Label lblInformasi;
         private System.Windows.Forms.ComboBox cboCAT;
         internal System.Windows.Forms.Button btnSave;
+        internal System.Windows.Forms.Label label3;
     }
 }

@@ -11,6 +11,7 @@ using MapWinGIS;
 using AxMapWinGIS;
 using Krypton.Ribbon;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace PolaPSDAPulauLombokMW
 {
@@ -42,8 +43,9 @@ namespace PolaPSDAPulauLombokMW
         PopUpForm formPopUp;
         public int shapeIdentifiedIndex;
         public string appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        
+        public int selectedFID;
         private void SetAllButtonsChecked(KryptonRibbon ribbon, bool isChecked)
+
         {
             // Iterate through all the tabs in the ribbon and call SetButtonsChecked for each one
             foreach (KryptonRibbonTab tab in ribbon.RibbonTabs)
@@ -51,7 +53,64 @@ namespace PolaPSDAPulauLombokMW
                 SetButtonsChecked(tab, isChecked);
             }
         }
+        Table admTable;
+        Table geoTable;
+        Table SungaiTable;
+        Table mataAirTable;
 
+        Table selectedTable;
+        Shapefile selectedShapefile;
+        string selectedColumn;
+        public void changeAttributeToShow(int layerSelected)
+        {
+            Table table = mataAirTable;
+            switch (layerSelected)
+            {
+                case 0:
+                    table = admTable;
+                    break;
+                case 1:
+                    table = geoTable;
+                    break;
+                case 2:
+                    table = SungaiTable;
+                    break;
+                case 3:
+                    table = mataAirTable;
+                    break;
+
+            }
+            if (table != null)
+            {
+                for (int i = 0; i < table.NumFields; i++)
+                {
+                    dataGridView1.Columns.Add(table.Field[i].Name, table.Field[i].Name);
+                }
+
+                for (int i = 0; i < table.NumRows - 1; i++)
+                {
+                    string[] attributeValue = new string[table.NumFields];
+                    for (int j = 0; j < table.NumFields; j++)
+                    {
+                        attributeValue[j] = table.CellValue[j, i].ToString();
+                    }
+
+                    dataGridView1.Rows.Insert(i, attributeValue);
+                    var hScrollBar = dataGridView1.GetType().GetField("horizontalScrollBar", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.GetValue(dataGridView1) as ScrollBar;
+                    if (hScrollBar != null)
+                    {
+                        hScrollBar.Visible = true;
+                    }
+
+
+
+
+
+                }
+
+
+            }
+        }
 
         private void SetButtonsChecked(KryptonRibbonTab tab, bool isChecked)
         {
@@ -78,62 +137,7 @@ namespace PolaPSDAPulauLombokMW
         }
 
 
-        Table admTable;
-        Table geoTable;
-        Table SungaiTable;
-        Table mataAirTable;
-
-
-        public void changeAttributeToShow(int layerSelected)
-        {
-            Table table = mataAirTable;
-            switch (layerSelected)
-            {
-                case 0:
-                    table = admTable;
-                    break;
-                case 1:
-                    table = geoTable;
-                    break;
-                case 2:
-                    table = SungaiTable;
-                    break;
-                case 3:
-                    table = mataAirTable;                  
-                    break;
-
-            }
-            if (table != null)
-            {
-                for (int i = 0; i < table.NumFields; i++)
-                {
-                    dataGridView1.Columns.Add(table.Field[i].Name, table.Field[i].Name);
-                }
-
-                for (int i = 0; i < table.NumRows - 1; i++)
-                {
-                    string[] attributeValue = new string[table.NumFields];
-                    for (int j = 0; j < table.NumFields; j++)
-                    {
-                        attributeValue[j] = table.CellValue[j, i].ToString();
-                    }
-
-                    dataGridView1.Rows.Insert(i, attributeValue);
-                    var hScrollBar = dataGridView1.GetType().GetField("horizontalScrollBar", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.GetValue(dataGridView1) as ScrollBar;
-                    if (hScrollBar != null)
-                    {
-                        hScrollBar.Visible = true;
-                    }
-                   
-                    
-                    
-
-
-                }
-
-               
-            }
-        }
+     
 
         private void labelConfigure(_DMapEvents_SelectBoxFinalEvent e)
         {
@@ -223,6 +227,20 @@ namespace PolaPSDAPulauLombokMW
 
             ct = mataAirShapefile.Labels.AddCategory("Hidden");
             ct.Visible = false;
+        }
+
+        public void RefreshMap()
+        {
+            
+            axMap1.Redraw();
+            axMap1.Redraw2(tkRedrawType.RedrawAll);
+            axMap1.Redraw2(tkRedrawType.RedrawSkipDataLayers);
+            axMap1.Refresh();
+          
+            legend1.RedrawLegendAndMap();
+            legend1.Refresh();
+            Refresh();
+            axMap1.Redraw();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -733,12 +751,40 @@ namespace PolaPSDAPulauLombokMW
 
         private void axMap1_DblClick(object sender, EventArgs e)
         {
-            MessageBox.Show("klik berrfungsi");
-            if (axMap1.CursorMode == tkCursorMode.cmMeasure)
+            
+            if (axMap1.CursorMode == tkCursorMode.cmAddShape)
             {
+                MapWinGIS.Shapefile pointShapefile = new MapWinGIS.Shapefile();
+                pointShapefile.CreateNew("", MapWinGIS.ShpfileType.SHP_POINT);
+
+                // add a new point to the shapefile
+                MapWinGIS.Point point = new MapWinGIS.Point();
+
+                point.x = axMap1.Longitude; // longitude
+                point.y = axMap1.Latitude;  // latitude
+                MessageBox.Show("posisi: " + point.x + " " + point.y);
+                MapWinGIS.Shape shape = new MapWinGIS.Shape();
+                shape.InsertPoint(point, 0);
+                int pointIndex = pointShapefile.EditAddShape(shape);
+
+                // set the point's attributes (optional)
+                pointShapefile.EditCellValue(0, 0, "Point 1");
+
+                // add the point shapefile to the map
+                axMap1.AddLayer(pointShapefile, true);
                 
-                MessageBox.Show(axMap1.Measuring.Length.ToString());
+
+                AddPointForm addPointForm = new AddPointForm(axMap1.Longitude, axMap1.Latitude);
+                addPointForm.SavePoint += AddPointForm_SavePoint;
+                addPointForm.Show();
+              
+                
             }
+        }
+        private void AddPointForm_SavePoint()
+        {
+            // Call the RefreshMap method to refresh the map in MainForm
+            RefreshMap();
         }
 
         private void axMap1_ShapeIdentified(object sender, _DMapEvents_ShapeIdentifiedEvent e)
@@ -770,10 +816,110 @@ namespace PolaPSDAPulauLombokMW
 
         private void kryptonRibbonGroupComboBoxQueryLayer1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            KryptonRibbonGroupComboBoxQueryFilter.Items.Clear();
+            Table table = mataAirTable;
             dataGridView1.Columns.Clear();
             layerSelected = kryptonRibbonGroupComboBoxQueryLayer1.SelectedIndex;
-            changeAttributeToShow(layerSelected);
             
+            changeAttributeToShow(layerSelected);
+            switch (layerSelected)
+            {
+                case 0:
+                    table = admTable;
+                    selectedTable = admTable;
+                    selectedShapefile = adminShapefile;
+                    break;
+                case 1:
+                    table = geoTable;
+                    selectedTable = geoTable;
+                    selectedShapefile = geoShapefile;
+                    break;
+                case 2:
+                    table = SungaiTable;
+                    selectedTable = SungaiTable;
+                    selectedShapefile = sungaiShapefile;
+                    break;
+                case 3:
+                    table = mataAirTable;
+                    selectedTable = mataAirTable;
+                    selectedShapefile = mataAirShapefile;
+                    break;
+            }
+            for (int i=0; i < table.NumFields; i++)
+            {
+                KryptonRibbonGroupComboBoxQueryFilter.Items.Insert(i, table.Field[i].Name);
+            }
+
+            
+
+
+        }
+
+        private void KryptonRibbonGroupComboBoxQueryFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            KryptonRibbonGroupComboBoxQueryObjek.Items.Clear();
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.DefaultCellStyle = null;
+            }
+
+            string columnName = kryptonRibbonGroupComboBoxQueryLayer1.Text;
+            int fieldIndex = selectedTable.FieldIndexByName[KryptonRibbonGroupComboBoxQueryFilter.Text];
+            int FIDfieldIndex = selectedTable.FieldIndexByName["FID"];
+            selectedColumn = dataGridView1.Columns[fieldIndex].Name;
+            dataGridView1.Columns[fieldIndex].DefaultCellStyle.BackColor = Color.Aqua;
+            int FID;
+            
+           
+            string[] items = new string[selectedTable.NumRows];
+            for(int i = 0; i < selectedTable.NumRows; i++)
+                {
+                FID = Convert.ToInt32((selectedTable.CellValue[FIDfieldIndex, i]));
+                items[i] = "FID: " + FID.ToString() + " " + selectedTable.CellValue[fieldIndex, i].ToString();
+                }
+
+            string[] uniqueItems = items.Distinct().ToArray();
+            for(int i=0; i < uniqueItems.Count(); i++)
+            {
+                KryptonRibbonGroupComboBoxQueryObjek.Items.Insert(i, uniqueItems[i]);
+            }
+           
+        }
+
+        private void KryptonRibbonGroupComboBoxQueryObjek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string pattern = @"\d+"; // match one or more digits
+            Match match = Regex.Match(KryptonRibbonGroupComboBoxQueryObjek.Text, pattern);
+            selectedShapefile.SelectNone();
+            int FIDfieldIndex = selectedTable.FieldIndexByName["FID"];
+            for (int i =0; i<selectedTable.NumRows; i++)
+            {
+                if (Convert.ToInt32(selectedTable.CellValue[FIDfieldIndex, i]) == int.Parse(match.Value))
+                {
+                    selectedFID = int.Parse(match.Value);
+                    selectedShapefile.ShapeSelected[selectedFID] = true;
+                }
+            }
+
+            selectedShapefile.SelectionColor = (uint)Color.Blue.ToArgb();
+            selectedShapefile.SelectionTransparency = 50;
+           
+            axMap1.ZoomToSelected(layerSelected);
+        }
+
+        private void KryptonRibbonGroupButton_AddPoint_Click(object sender, EventArgs e)
+        {
+            SetAllButtonsChecked(KryptonRibbon1, false);
+            KryptonRibbonGroupButton_AddPoint.Checked = true;
+            axMap1.CursorMode = tkCursorMode.cmAddShape;
+
+           
+        }
+
+        private void axMap1_MouseDownEvent(object sender, _DMapEvents_MouseDownEvent e)
+        {
+           
         }
     }
 }

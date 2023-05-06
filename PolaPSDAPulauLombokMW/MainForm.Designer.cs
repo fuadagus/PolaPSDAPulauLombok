@@ -504,6 +504,7 @@ namespace PolaPSDAPulauLombokMW
             this.axMap1.Size = new System.Drawing.Size(630, 270);
             this.axMap1.TabIndex = 0;
             this.axMap1.DblClick += new System.EventHandler(this.axMap1_DblClick);
+            this.axMap1.MouseDownEvent += new AxMapWinGIS._DMapEvents_MouseDownEventHandler(this.axMap1_MouseDownEvent);
             this.axMap1.SelectBoxFinal += new AxMapWinGIS._DMapEvents_SelectBoxFinalEventHandler(this.axMap1_SelectBoxFinal);
             this.axMap1.ShapeIdentified += new AxMapWinGIS._DMapEvents_ShapeIdentifiedEventHandler(this.axMap1_ShapeIdentified);
             // 
@@ -654,7 +655,6 @@ namespace PolaPSDAPulauLombokMW
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -749,6 +749,7 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonGroupComboBoxQueryLayer1,
             this.KryptonRibbonGroupComboBoxQueryFilter,
             this.KryptonRibbonGroupComboBoxQueryObjek});
+            this.KryptonRibbonGroupTriple7.MinimumSize = Krypton.Ribbon.GroupItemSize.Medium;
             // 
             // kryptonRibbonGroupComboBoxQueryLayer1
             // 
@@ -764,6 +765,7 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupComboBoxQueryFilter.FormattingEnabled = false;
             this.KryptonRibbonGroupComboBoxQueryFilter.ItemHeight = 15;
             this.KryptonRibbonGroupComboBoxQueryFilter.Text = "Filter";
+            this.KryptonRibbonGroupComboBoxQueryFilter.SelectedIndexChanged += new System.EventHandler(this.KryptonRibbonGroupComboBoxQueryFilter_SelectedIndexChanged);
             // 
             // KryptonRibbonGroupComboBoxQueryObjek
             // 
@@ -771,6 +773,7 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupComboBoxQueryObjek.FormattingEnabled = false;
             this.KryptonRibbonGroupComboBoxQueryObjek.ItemHeight = 15;
             this.KryptonRibbonGroupComboBoxQueryObjek.Text = "Cari Objek";
+            this.KryptonRibbonGroupComboBoxQueryObjek.SelectedIndexChanged += new System.EventHandler(this.KryptonRibbonGroupComboBoxQueryObjek_SelectedIndexChanged);
             // 
             // KryptonRibbonGroup_Identify
             // 
@@ -869,8 +872,7 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonTab_Analyst,
             this.KryptonRibbonTab_Report,
             this.KryptonRibbonTab_Help});
-            this.KryptonRibbon1.SelectedContext = null;
-            this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_Query;
+            this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_Edit;
             this.KryptonRibbon1.Size = new System.Drawing.Size(959, 143);
             this.KryptonRibbon1.TabIndex = 8;
             this.KryptonRibbon1.SelectedTabChanged += new System.EventHandler(this.KryptonRibbon1_SelectedTabChanged);
@@ -995,8 +997,10 @@ namespace PolaPSDAPulauLombokMW
             // 
             // KryptonRibbonGroupButton_AddPoint
             // 
+            this.KryptonRibbonGroupButton_AddPoint.ButtonType = Krypton.Ribbon.GroupButtonType.Check;
             this.KryptonRibbonGroupButton_AddPoint.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_AddPoint.ImageLarge")));
             this.KryptonRibbonGroupButton_AddPoint.TextLine1 = "AddPoint";
+            this.KryptonRibbonGroupButton_AddPoint.Click += new System.EventHandler(this.KryptonRibbonGroupButton_AddPoint_Click);
             // 
             // kryptonRibbonTab_Analyst
             // 

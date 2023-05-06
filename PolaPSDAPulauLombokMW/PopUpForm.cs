@@ -29,6 +29,33 @@ namespace PolaPSDAPulauLombokMW
         string filePath;
         string passWord;
         public bool isEditMode = false;
+        public string appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        Shapefile mataAirShape;
+
+
+
+
+        int shapeIdentifiedIndex;
+        int fieldIndex; 
+        int fieldIndexNama;
+        int fieldIndexDebit;
+        int fieldIndexCAT;
+        int fieldIndexLokasiX;
+        int fieldIndexLokasiY;
+        int fieldIndexLokasiDesa;
+
+        string strFotoPath;
+
+        string strNullFotoPath;
+
+        string strFoto;
+        string strNama;
+        string strDebit;
+        string strCAT;
+        string strLokasiX;
+        string strLokasiY;
+        string strLokasiDesa;
+            
 
         // Event handler method that receives data from the sender form
         private void MyEventHandlerMethod(bool isEditMode)
@@ -59,27 +86,27 @@ namespace PolaPSDAPulauLombokMW
         private void FormPopUp_Load(object sender, EventArgs e)
         {   
             strFotoMataAirPath = Path.Combine(mainForm.appDir, "Resources\\database\\NonSpatial\\Photo\\MataAir");
-            int shapeIdentifiedIndex = mainForm.shapeIdentifiedIndex;
-            Shapefile mataAirShape = mainForm.axMap1.get_Shapefile(mainForm.mataAirLayerHandle);
-            int fieldIndex = mataAirShape.FieldIndexByName["foto"];
-            int fieldIndexNama = mataAirShape.FieldIndexByName["nm_dat_das"];
-            int fieldIndexDebit = mataAirShape.FieldIndexByName["debit"];
-            int fieldIndexCAT = mataAirShape.FieldIndexByName["cat"];
-            int fieldIndexLokasiX = mataAirShape.FieldIndexByName["koord_x"];
-            int fieldIndexLokasiY = mataAirShape.FieldIndexByName["koord_y"];
-            int fieldIndexLokasiDesa = mataAirShape.FieldIndexByName["kel_desa"];
+            shapeIdentifiedIndex = mainForm.shapeIdentifiedIndex;
+            mataAirShape = mainForm.axMap1.get_Shapefile(mainForm.mataAirLayerHandle);
+            fieldIndex = mataAirShape.FieldIndexByName["foto"];
+            fieldIndexNama = mataAirShape.FieldIndexByName["nm_dat_das"];
+            fieldIndexDebit = mataAirShape.FieldIndexByName["debit"];
+            fieldIndexCAT = mataAirShape.FieldIndexByName["cat"];
+            fieldIndexLokasiX = mataAirShape.FieldIndexByName["koord_x"];
+            fieldIndexLokasiY = mataAirShape.FieldIndexByName["koord_y"];
+            fieldIndexLokasiDesa = mataAirShape.FieldIndexByName["kel_desa"];
 
-            string strFotoPath = Path.Combine(strFotoMataAirPath, mataAirShape.CellValue[fieldIndex, shapeIdentifiedIndex].ToString());
+             strFotoPath = Path.Combine(strFotoMataAirPath, mataAirShape.CellValue[fieldIndex, shapeIdentifiedIndex].ToString());
 
-            string strNullFotoPath = Path.Combine(strFotoMataAirPath, "NoAnyFoto.jpg");
+            strNullFotoPath = Path.Combine(strFotoMataAirPath, "NoAnyFoto.jpg");
 
-            string strFoto = mataAirShape.CellValue[fieldIndex, shapeIdentifiedIndex].ToString();
-            string strNama = mataAirShape.CellValue[fieldIndexNama, shapeIdentifiedIndex].ToString();
-            string strDebit = mataAirShape.CellValue[fieldIndexDebit, shapeIdentifiedIndex].ToString();
-            string strCAT = mataAirShape.CellValue[fieldIndexCAT, shapeIdentifiedIndex].ToString();
-            string strLokasiX = mataAirShape.CellValue[fieldIndexLokasiX, shapeIdentifiedIndex].ToString();
-            string strLokasiY = mataAirShape.CellValue[fieldIndexLokasiY, shapeIdentifiedIndex].ToString();
-            string strLokasiDesa = mataAirShape.CellValue[fieldIndexLokasiDesa, shapeIdentifiedIndex].ToString();
+            strFoto = mataAirShape.CellValue[fieldIndex, shapeIdentifiedIndex].ToString();
+            strNama = mataAirShape.CellValue[fieldIndexNama, shapeIdentifiedIndex].ToString();
+            strDebit = mataAirShape.CellValue[fieldIndexDebit, shapeIdentifiedIndex].ToString();
+            strCAT = mataAirShape.CellValue[fieldIndexCAT, shapeIdentifiedIndex].ToString();
+            strLokasiX = mataAirShape.CellValue[fieldIndexLokasiX, shapeIdentifiedIndex].ToString();
+            strLokasiY = mataAirShape.CellValue[fieldIndexLokasiY, shapeIdentifiedIndex].ToString();
+            strLokasiDesa = mataAirShape.CellValue[fieldIndexLokasiDesa, shapeIdentifiedIndex].ToString();
 
 
             changeAccess(false);
@@ -151,12 +178,21 @@ namespace PolaPSDAPulauLombokMW
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            fileName = Path.GetFileName(filePath);
-            targetPath = strFotoMataAirPath;
-            pictureBox1.Image.Save(Path.Combine(targetPath, fileName));
-            MessageBox.Show(Path.Combine(targetPath, fileName));
-            pictureBox1.Image.Dispose();
+            this.Close();
+
+            //mataAirShape.Table.EditCellValue(fieldIndex, shapeIdentifiedIndex,strFoto);
+            //mataAirShape.Table.EditCellValue(fieldIndexCAT, shapeIdentifiedIndex, strCAT);
+            //mataAirShape.Table.EditCellValue(fieldIndexNama, shapeIdentifiedIndex, strNama);
             
+            // mataAirShape.Table.EditCellValue(fieldIndex, shapeIdentifiedIndex, strFoto);
+
+            //strFotoMataAirPath = Path.Combine(appDir, "Resources\\database\\NonSpatial\\Photo\\MataAir");
+            //fileName = Path.GetFileName(filePath);
+            //targetPath = strFotoMataAirPath;
+            //pictureBox1.Image.Save(Path.Combine(targetPath, fileName));
+            //MessageBox.Show(Path.Combine(targetPath, fileName));
+            //pictureBox1.Image.Dispose();
+
         }
 
         private void cmdEdit_Click(object sender, EventArgs e)
