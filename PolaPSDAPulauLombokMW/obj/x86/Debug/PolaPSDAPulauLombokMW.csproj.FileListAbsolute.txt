@@ -1,4 +1,3 @@
-C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.Form1.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.Properties.Resources.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.GenerateResource.cache
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.CoreCompileInputs.cache
@@ -25,3 +24,5 @@ C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.ShapeEditor.dll
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\Interop.MapWinGIS.xml
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\bin\x86\Debug\AxInterop.MapWinGIS.xml
+C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.MainForm.resources
+C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.PopUpForm.resources
