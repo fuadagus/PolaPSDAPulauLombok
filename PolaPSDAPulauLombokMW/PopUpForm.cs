@@ -23,13 +23,39 @@ namespace PolaPSDAPulauLombokMW
             mainForm = mainFormInisialized;
         }
 
-
-
         public string strFotoMataAirPath;
         string fileName;
         string targetPath;
         string filePath;
+        string passWord;
+        public bool isEditMode = false;
 
+        // Event handler method that receives data from the sender form
+        private void MyEventHandlerMethod(bool isEditMode)
+        {
+            changeAccess(isEditMode);
+            MessageBox.Show("Silahkan Mengedit");
+        }
+
+        // Method that subscribes to the event in the sender form
+        private void SubscribeToSenderFormEvent()
+        {
+            CredentialForm senderForm = (CredentialForm)Form.ActiveForm;
+            senderForm.MyEvent += MyEventHandlerMethod;
+        }
+
+        public void changeAccess(bool isEditMode)
+        {
+            txtDebitAir.ReadOnly = !isEditMode;
+            txtLokasi.ReadOnly = !isEditMode;
+            txtMataAir.ReadOnly = !isEditMode;
+            txtLokasi.ReadOnly = !isEditMode;
+            cboCAT.Enabled = isEditMode;
+            cmdBrowse.Enabled = isEditMode;
+            cmdDelete.Enabled = isEditMode;
+            btnSave.Enabled = isEditMode;
+
+        }
         private void FormPopUp_Load(object sender, EventArgs e)
         {   
             strFotoMataAirPath = Path.Combine(mainForm.appDir, "Resources\\database\\NonSpatial\\Photo\\MataAir");
@@ -54,6 +80,9 @@ namespace PolaPSDAPulauLombokMW
             string strLokasiX = mataAirShape.CellValue[fieldIndexLokasiX, shapeIdentifiedIndex].ToString();
             string strLokasiY = mataAirShape.CellValue[fieldIndexLokasiY, shapeIdentifiedIndex].ToString();
             string strLokasiDesa = mataAirShape.CellValue[fieldIndexLokasiDesa, shapeIdentifiedIndex].ToString();
+
+
+            changeAccess(false);
 
             if (strFoto == null | strFoto == "")
             {
@@ -127,6 +156,15 @@ namespace PolaPSDAPulauLombokMW
             pictureBox1.Image.Save(Path.Combine(targetPath, fileName));
             MessageBox.Show(Path.Combine(targetPath, fileName));
             pictureBox1.Image.Dispose();
+            
+        }
+
+        private void cmdEdit_Click(object sender, EventArgs e)
+        {
+            CredentialForm credentialForm = new CredentialForm();
+            credentialForm.Show();
+            SubscribeToSenderFormEvent();
+
             
         }
     }

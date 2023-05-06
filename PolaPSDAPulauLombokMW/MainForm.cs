@@ -89,17 +89,17 @@ namespace PolaPSDAPulauLombokMW
             Table table = mataAirTable;
             switch (layerSelected)
             {
-                case -1:
-                    table = mataAirTable;
-                    break;
-                case 1:
+                case 0:
                     table = admTable;
                     break;
-                case 3:
+                case 1:
                     table = geoTable;
                     break;
-                case 6:
+                case 2:
                     table = SungaiTable;
+                    break;
+                case 3:
+                    table = mataAirTable;                  
                     break;
 
             }
@@ -168,18 +168,8 @@ namespace PolaPSDAPulauLombokMW
                             // Select the shape
                             if (shapeIndex >= 0)
                             {
-                                // Clear the previously selected shapes
-                                //for ( int j = 0 ; j<mataAirShapefile.NumShapes; j++) {
-                                //    mataAirShapefile.ShapeSelected[i] = false;
-                                //}
-
-                                // Add the current shape index to the SelectedShapes collection
+                                
                                 mataAirShapefile.ShapeSelected[shapeIndex] = true;
-
-
-                                //List<int> ls = new List<int>();
-                                //int debitFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
-                                //ls.Add((int)mataAirShapefile.CellValue[debitFieldIndex, shapeIndex]);
 
 
                                 int debitFieldIndex = mataAirShapefile.Table.FieldIndexByName["debit"];
@@ -241,10 +231,7 @@ namespace PolaPSDAPulauLombokMW
             MapWinGIS.Map map = (MapWinGIS.Map)axMap1.GetOcx();
             map.TileProvider = tkTileProvider.GoogleTerrain;
             map.Redraw();
-            layerSelected = -1; //Sebaran Mata Air
-                               //6 Sungai
-                               //3 geologi
-                               // 1 administrasi
+            layerSelected = 3; 
             
            
 
@@ -256,7 +243,7 @@ namespace PolaPSDAPulauLombokMW
             string mataAirSHPPath = Path.Combine(spatialPath, "SebaranMataAir\\sebaran_mata_air.shp");
             string sungaiSHPPath = Path.Combine(spatialPath, "Sungai\\sungai.shp");
 
-            axMap1.AddLayer(admSHPPath, true);
+            
             axMap1.ZoomToMaxExtents();
             axMap1.CreateControl();
 
@@ -285,10 +272,7 @@ namespace PolaPSDAPulauLombokMW
             int geoFieldIndex = geoTable.FieldIndexByName["NAMOBJ"];
             int sungaiFieldIndex = SungaiTable.FieldIndexByName["REMARK"];
             int mataAirFieldIndex = mataAirTable.FieldIndexByName["nm_dat_das"];
-            //-1Sebaran Mata Air
-            //6 Sungai
-            //3 geologi
-            // 1 administrasi
+            
 
 
 
@@ -318,8 +302,7 @@ namespace PolaPSDAPulauLombokMW
                 scheme.SetColors2(tkMapColor.Red, tkMapColor.LightYellow);
                 adminShapefile.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeRandom, scheme);
 
-                // Add the shapefile to the map control
-                map.AddLayer(adminShapefile, true);
+                
                 projection = adminShapefile.Projection;
 
                 legend1.Map = map;
@@ -356,7 +339,7 @@ namespace PolaPSDAPulauLombokMW
                 geoShapefile.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeRandom, scheme2);
                 geoShapefile.Projection = projection;
                 // Add the shapefile to the map control
-                map.AddLayer(geoShapefile, true);
+                
 
 
                 legend1.Map = map;
@@ -369,7 +352,6 @@ namespace PolaPSDAPulauLombokMW
                 map.Redraw();
             }
 
-            map.AddLayer(sungaiShapefile, true);
 
 
 
@@ -394,7 +376,7 @@ namespace PolaPSDAPulauLombokMW
                 var scheme3 = new ColorScheme();
                 scheme3.SetColors2(tkMapColor.Blue, tkMapColor.LightBlue);
                 sungaiShapefile.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeGraduated, scheme3);
-                map.AddLayer(sungaiShapefile, true);
+              
                
                 
 
@@ -404,7 +386,6 @@ namespace PolaPSDAPulauLombokMW
 
                 legend1.Map = map;
                 sungaiLayerHandle = legend1.Layers.Add(sungaiShapefile, true);
-                map.AddLayer(sungaiShapefile, true);
 
                 // Set the layer's Name property to the name of the shapefile
                 legend1.GetLayer(sungaiLayerHandle).Name = Path.GetFileNameWithoutExtension(sungaiSHPPath);
@@ -444,7 +425,7 @@ namespace PolaPSDAPulauLombokMW
                 }
                 
                 mataAirShapefile.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeRandom, scheme4);
-                mataAirLayerHandle = map.AddLayer(mataAirShapefile, true);
+               
 
 
                 // let's add labels consisting of Name and type of building on a separate lines
@@ -468,7 +449,7 @@ namespace PolaPSDAPulauLombokMW
 
                 legend1.Map = map;
                 mataAirLayerHandle = legend1.Layers.Add(mataAirShapefile, true);
-                map.AddLayer(mataAirShapefile, true);
+                
 
                 // Set the layer's Name property to the name of the shapefile
                 legend1.GetLayer(mataAirLayerHandle).Name = Path.GetFileNameWithoutExtension(mataAirSHPPath);
@@ -476,6 +457,14 @@ namespace PolaPSDAPulauLombokMW
                 legend1.Refresh();
                 map.Redraw();
             }
+            
+            for (int i= 0;i < axMap1.NumLayers; i++)
+            {
+                
+                string item = axMap1.get_LayerName(i);
+                kryptonRibbonGroupComboBoxQueryLayer1.Items.Insert(i,item);
+            }
+            
 
 
 
@@ -689,32 +678,37 @@ namespace PolaPSDAPulauLombokMW
         private void legend1_LayerVisibleChanged(int Handle, bool NewState, ref bool Cancel)
         {
 
+
         }
 
         private void legend1_LayerSelected(int Handle)
         {
+         
+           
+           
             dataGridView1.Columns.Clear();
-            if (legend1.SelectedLayer == 1)
+            if (legend1.SelectedLayer == 0)
             {
-                layerSelected = 1;
-                changeAttributeToShow(layerSelected);
+                
+                changeAttributeToShow(0);
                 
             }
-            else if (legend1.SelectedLayer == 3)
+            else if (legend1.SelectedLayer == 1)
             {
-                layerSelected = 3;
-                changeAttributeToShow(3);
+              
+                changeAttributeToShow(1);
                 
             }
-            else if (legend1.SelectedLayer == 6) {
-                layerSelected = 6;
-                changeAttributeToShow(layerSelected);
+            else if (legend1.SelectedLayer == 2) {
+               
+                changeAttributeToShow(2);
                
             }
             else
             {
-                layerSelected = -1;
-                changeAttributeToShow(layerSelected);
+                layerSelected = 3;
+                changeAttributeToShow(3
+                    );
             }
                 
         }
@@ -727,87 +721,7 @@ namespace PolaPSDAPulauLombokMW
         private void axMap1_SelectBoxFinal(object sender, _DMapEvents_SelectBoxFinalEvent e)
         {
             labelConfigure(e);
-            //Shapefile mataAirShapefile = axMap1.get_Shapefile(mataAirLayerHandle);
-            //if (mataAirShapefile != null)
-            //{
-                
-            //    object labels = null;
-            //    object parts = null;
-
-            //    var ext = new Extents();
-            //    ext.SetBounds(e.left, e.bottom, 0.0, e.right, e.top, 0.0);
-
-            //    if (mataAirShapefile.Labels.Select(ext, 0, SelectMode.INTERSECTION, ref labels, ref parts))
-            //    {
-            //        double sum = 0;
-            //        int[] labelIndices = labels as int[];
-            //        int[] partIndices = parts as int[];
-            //        for (int i = 0; i < labelIndices.Count(); i++)
-            //        {
-            //            MapWinGIS.Label label = mataAirShapefile.Labels.Label[labelIndices[i], partIndices[i]];
-            //            if (label.Category == -1) { 
-            //                 // selection will be appliedonly to the labels without category, so that hidden
-                            
-            //                //labels preserve their state
-
-            //                // Get the shape index associated with the label
-            //                int shapeIndex = 0;
-            //                mataAirShapefile.PointInShape(shapeIndex,(int)label.x, label.y);
-
-            //                // Select the shape
-            //                if (shapeIndex >= 0)
-            //                {
-            //                    // Clear the previously selected shapes
-            //                    //for ( int j = 0 ; j<mataAirShapefile.NumShapes; j++) {
-            //                    //    mataAirShapefile.ShapeSelected[i] = false;
-            //                    //}
-
-            //                    // Add the current shape index to the SelectedShapes collection
-            //                    mataAirShapefile.ShapeSelected[shapeIndex] = true;
-
-
-            //                    //List<int> ls = new List<int>();
-            //                    //int debitFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
-            //                    //ls.Add((int)mataAirShapefile.CellValue[debitFieldIndex, shapeIndex]);
-
-
-            //                    int debitFieldIndex = mataAirShapefile.Table.FieldIndexByName["debit"];
-
-            //                    // Calculate the sum of all debit values
-                                
-            //                    for (int j = 0; j < mataAirShapefile.NumShapes; j++)
-            //                    {
-            //                        // Get the debit value for the current shape
-            //                        double debit = Convert.ToDouble(mataAirShapefile.Table.CellValue[debitFieldIndex, i]);
-
-            //                        // Add the debit value to the sum
-            //                        sum += debit;
-
-                                 
-                                    
-            //                    }
-            //                    label.Category = CATEGORY_SELECTED;
-
-                               
-                              
-
-
-
-
-
-            //                    // Refresh the map to show the selected shape
-            //                    axMap1.Redraw();
-            //                }
-                           
-            //            }
-            //            kryptonRibbonGroupRichTextBox_AnlResult.Text = sum.ToString() + " L/Detik";
-            //        }
-            //        axMap1.Redraw();
-            //        int dbtFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
-            //        //kryptonRibbonGroupRichTextBox_AnlResult.Text = mataAirShapefile.CellValue[dbtFieldIndex,mataAirShapefile.Shap]
-
-            //    }
-            //}
+            
         }
 
         private void kryptonRibbonGroupButton_Vol_Click(object sender, EventArgs e)
@@ -847,6 +761,19 @@ namespace PolaPSDAPulauLombokMW
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void KryptonRibbonGroupComboBoxQueryLayer(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonRibbonGroupComboBoxQueryLayer1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView1.Columns.Clear();
+            layerSelected = kryptonRibbonGroupComboBoxQueryLayer1.SelectedIndex;
+            changeAttributeToShow(layerSelected);
+            
         }
     }
 }

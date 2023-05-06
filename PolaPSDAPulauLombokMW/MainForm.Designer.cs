@@ -111,8 +111,8 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonTab5 = new Krypton.Ribbon.KryptonRibbonTab();
             this.KryptonRibbonGroup_Query = new Krypton.Ribbon.KryptonRibbonGroup();
             this.KryptonRibbonGroupTriple7 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.KryptonRibbonGroupComboBoxQueryLayer = new Krypton.Ribbon.KryptonRibbonGroupComboBox();
-            this.KryptonRibbonGroupComboBoxQueryKecamatan = new Krypton.Ribbon.KryptonRibbonGroupComboBox();
+            this.kryptonRibbonGroupComboBoxQueryLayer1 = new Krypton.Ribbon.KryptonRibbonGroupComboBox();
+            this.KryptonRibbonGroupComboBoxQueryFilter = new Krypton.Ribbon.KryptonRibbonGroupComboBox();
             this.KryptonRibbonGroupComboBoxQueryObjek = new Krypton.Ribbon.KryptonRibbonGroupComboBox();
             this.KryptonRibbonGroup_Identify = new Krypton.Ribbon.KryptonRibbonGroup();
             this.KryptonRibbonGroupTriple5 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
@@ -746,24 +746,24 @@ namespace PolaPSDAPulauLombokMW
             // KryptonRibbonGroupTriple7
             // 
             this.KryptonRibbonGroupTriple7.Items.AddRange(new Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.KryptonRibbonGroupComboBoxQueryLayer,
-            this.KryptonRibbonGroupComboBoxQueryKecamatan,
+            this.kryptonRibbonGroupComboBoxQueryLayer1,
+            this.KryptonRibbonGroupComboBoxQueryFilter,
             this.KryptonRibbonGroupComboBoxQueryObjek});
             // 
-            // KryptonRibbonGroupComboBoxQueryLayer
+            // kryptonRibbonGroupComboBoxQueryLayer1
             // 
-            this.KryptonRibbonGroupComboBoxQueryLayer.DropDownWidth = 121;
-            this.KryptonRibbonGroupComboBoxQueryLayer.FormattingEnabled = false;
-            this.KryptonRibbonGroupComboBoxQueryLayer.ItemHeight = 15;
-            this.KryptonRibbonGroupComboBoxQueryLayer.Text = "Pilih Layer";
-            this.KryptonRibbonGroupComboBoxQueryLayer.DropDown += new System.EventHandler(this.KryptonRibbonGroupComboBoxQueryKecamatan_DropDown);
+            this.kryptonRibbonGroupComboBoxQueryLayer1.DropDownWidth = 121;
+            this.kryptonRibbonGroupComboBoxQueryLayer1.FormattingEnabled = false;
+            this.kryptonRibbonGroupComboBoxQueryLayer1.ItemHeight = 15;
+            this.kryptonRibbonGroupComboBoxQueryLayer1.Text = "Pilih Layer";
+            this.kryptonRibbonGroupComboBoxQueryLayer1.SelectedIndexChanged += new System.EventHandler(this.kryptonRibbonGroupComboBoxQueryLayer1_SelectedIndexChanged);
             // 
-            // KryptonRibbonGroupComboBoxQueryKecamatan
+            // KryptonRibbonGroupComboBoxQueryFilter
             // 
-            this.KryptonRibbonGroupComboBoxQueryKecamatan.DropDownWidth = 121;
-            this.KryptonRibbonGroupComboBoxQueryKecamatan.FormattingEnabled = false;
-            this.KryptonRibbonGroupComboBoxQueryKecamatan.ItemHeight = 15;
-            this.KryptonRibbonGroupComboBoxQueryKecamatan.Text = "Cari Kecamatan";
+            this.KryptonRibbonGroupComboBoxQueryFilter.DropDownWidth = 121;
+            this.KryptonRibbonGroupComboBoxQueryFilter.FormattingEnabled = false;
+            this.KryptonRibbonGroupComboBoxQueryFilter.ItemHeight = 15;
+            this.KryptonRibbonGroupComboBoxQueryFilter.Text = "Filter";
             // 
             // KryptonRibbonGroupComboBoxQueryObjek
             // 
@@ -869,7 +869,8 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonTab_Analyst,
             this.KryptonRibbonTab_Report,
             this.KryptonRibbonTab_Help});
-            this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_View;
+            this.KryptonRibbon1.SelectedContext = null;
+            this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_Query;
             this.KryptonRibbon1.Size = new System.Drawing.Size(959, 143);
             this.KryptonRibbon1.TabIndex = 8;
             this.KryptonRibbon1.SelectedTabChanged += new System.EventHandler(this.KryptonRibbon1_SelectedTabChanged);
@@ -1226,8 +1227,8 @@ namespace PolaPSDAPulauLombokMW
         internal Krypton.Ribbon.KryptonRibbonTab kryptonRibbonTab5;
         internal Krypton.Ribbon.KryptonRibbonGroup KryptonRibbonGroup_Query;
         internal Krypton.Ribbon.KryptonRibbonGroupTriple KryptonRibbonGroupTriple7;
-        internal Krypton.Ribbon.KryptonRibbonGroupComboBox KryptonRibbonGroupComboBoxQueryLayer;
-        internal Krypton.Ribbon.KryptonRibbonGroupComboBox KryptonRibbonGroupComboBoxQueryKecamatan;
+        //internal Krypton.Ribbon.KryptonRibbonGroupComboBox KryptonRibbonGroupComboBoxQueryLayer;
+        internal Krypton.Ribbon.KryptonRibbonGroupComboBox KryptonRibbonGroupComboBoxQueryFilter;
         internal Krypton.Ribbon.KryptonRibbonGroupComboBox KryptonRibbonGroupComboBoxQueryObjek;
         internal Krypton.Ribbon.KryptonRibbonGroup KryptonRibbonGroup_Identify;
         internal Krypton.Ribbon.KryptonRibbonGroupTriple KryptonRibbonGroupTriple5;
@@ -1291,6 +1292,7 @@ namespace PolaPSDAPulauLombokMW
         private Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines2;
         private Krypton.Ribbon.KryptonRibbonGroupRichTextBox kryptonRibbonGroupRichTextBox_AnlResult;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private Krypton.Ribbon.KryptonRibbonGroupComboBox kryptonRibbonGroupComboBoxQueryLayer1;
     }
 }
 

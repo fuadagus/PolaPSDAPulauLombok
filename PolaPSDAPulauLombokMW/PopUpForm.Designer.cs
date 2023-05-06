@@ -81,6 +81,7 @@ namespace PolaPSDAPulauLombokMW
             this.cmdEdit.TabIndex = 61;
             this.cmdEdit.Text = "Edit";
             this.cmdEdit.UseVisualStyleBackColor = true;
+            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
             // 
             // cmdDelete
             // 
