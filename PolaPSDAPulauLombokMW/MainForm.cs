@@ -135,7 +135,105 @@ namespace PolaPSDAPulauLombokMW
             }
         }
 
+        private void labelConfigure(_DMapEvents_SelectBoxFinalEvent e)
+        {
+            Shapefile mataAirShapefile = axMap1.get_Shapefile(mataAirLayerHandle);
+            if (mataAirShapefile != null)
+            {
 
+                object labels = null;
+                object parts = null;
+
+                var ext = new Extents();
+                ext.SetBounds(e.left, e.bottom, 0.0, e.right, e.top, 0.0);
+
+                if (mataAirShapefile.Labels.Select(ext, 0, SelectMode.INTERSECTION, ref labels, ref parts))
+                {
+                    double sum = 0;
+                    int[] labelIndices = labels as int[];
+                    int[] partIndices = parts as int[];
+                    for (int i = 0; i < labelIndices.Count(); i++)
+                    {
+                        MapWinGIS.Label label = mataAirShapefile.Labels.Label[labelIndices[i], partIndices[i]];
+                        if (label.Category == -1)
+                        {
+                            // selection will be appliedonly to the labels without category, so that hidden
+
+                            //labels preserve their state
+
+                            // Get the shape index associated with the label
+                            int shapeIndex = 0;
+                            mataAirShapefile.PointInShape(shapeIndex, (int)label.x, label.y);
+
+                            // Select the shape
+                            if (shapeIndex >= 0)
+                            {
+                                // Clear the previously selected shapes
+                                //for ( int j = 0 ; j<mataAirShapefile.NumShapes; j++) {
+                                //    mataAirShapefile.ShapeSelected[i] = false;
+                                //}
+
+                                // Add the current shape index to the SelectedShapes collection
+                                mataAirShapefile.ShapeSelected[shapeIndex] = true;
+
+
+                                //List<int> ls = new List<int>();
+                                //int debitFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
+                                //ls.Add((int)mataAirShapefile.CellValue[debitFieldIndex, shapeIndex]);
+
+
+                                int debitFieldIndex = mataAirShapefile.Table.FieldIndexByName["debit"];
+
+                                // Calculate the sum of all debit values
+
+                                for (int j = 0; j < mataAirShapefile.NumShapes; j++)
+                                {
+                                    // Get the debit value for the current shape
+                                    double debit = Convert.ToDouble(mataAirShapefile.Table.CellValue[debitFieldIndex, i]);
+
+                                    // Add the debit value to the sum
+                                    sum += debit;
+
+
+
+                                }
+                                label.Category = CATEGORY_SELECTED;
+
+
+
+
+
+
+
+
+                                // Refresh the map to show the selected shape
+                                axMap1.Redraw();
+                            }
+
+                        }
+                        kryptonRibbonGroupRichTextBox_AnlResult.Text = sum.ToString() + " L/Detik";
+                    }
+                    axMap1.Redraw();
+                    int dbtFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
+                    //kryptonRibbonGroupRichTextBox_AnlResult.Text = mataAirShapefile.CellValue[dbtFieldIndex,mataAirShapefile.Shap]
+
+                }
+            }
+        }
+
+
+        private void addLabelCategory()
+        {
+            // now let's add categories
+
+            Utils utils = new Utils();  // to specify colors
+
+            LabelCategory ct = mataAirShapefile.Labels.AddCategory("Selected");
+            ct.FrameBackColor = utils.ColorByName(tkMapColor.Yellow);
+
+            ct = mataAirShapefile.Labels.AddCategory("Hidden");
+            ct.Visible = false;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -354,14 +452,7 @@ namespace PolaPSDAPulauLombokMW
                 mataAirShapefile.Labels.FrameVisible = true;
                 mataAirShapefile.Labels.FrameType = tkLabelFrameType.lfPointedRectangle;
 
-                // now let's add categories
-                Utils utils = new Utils();  // to specify colors
-
-                LabelCategory ct = mataAirShapefile.Labels.AddCategory("Selected");
-                ct.FrameBackColor = utils.ColorByName(tkMapColor.Yellow);
-
-                ct = mataAirShapefile.Labels.AddCategory("Hidden");
-                ct.Visible = false;
+                addLabelCategory();
 
                 axMap1.SendSelectBoxFinal = true;
                 axMap1.SendMouseDown = true;
@@ -635,83 +726,88 @@ namespace PolaPSDAPulauLombokMW
 
         private void axMap1_SelectBoxFinal(object sender, _DMapEvents_SelectBoxFinalEvent e)
         {
-            Shapefile mataAirShapefile = axMap1.get_Shapefile(mataAirLayerHandle);
-            if (mataAirShapefile != null)
-            {
+            labelConfigure(e);
+            //Shapefile mataAirShapefile = axMap1.get_Shapefile(mataAirLayerHandle);
+            //if (mataAirShapefile != null)
+            //{
                 
-                object labels = null;
-                object parts = null;
+            //    object labels = null;
+            //    object parts = null;
 
-                var ext = new Extents();
-                ext.SetBounds(e.left, e.bottom, 0.0, e.right, e.top, 0.0);
+            //    var ext = new Extents();
+            //    ext.SetBounds(e.left, e.bottom, 0.0, e.right, e.top, 0.0);
 
-                if (mataAirShapefile.Labels.Select(ext, 0, SelectMode.INTERSECTION, ref labels, ref parts))
-                {
-                    int[] labelIndices = labels as int[];
-                    int[] partIndices = parts as int[];
-                    for (int i = 0; i < labelIndices.Count(); i++)
-                    {
-                        MapWinGIS.Label label = mataAirShapefile.Labels.Label[labelIndices[i], partIndices[i]];
-                        if (label.Category == -1) { 
-                             // selection will be appliedonly to the labels without category, so that hidden
+            //    if (mataAirShapefile.Labels.Select(ext, 0, SelectMode.INTERSECTION, ref labels, ref parts))
+            //    {
+            //        double sum = 0;
+            //        int[] labelIndices = labels as int[];
+            //        int[] partIndices = parts as int[];
+            //        for (int i = 0; i < labelIndices.Count(); i++)
+            //        {
+            //            MapWinGIS.Label label = mataAirShapefile.Labels.Label[labelIndices[i], partIndices[i]];
+            //            if (label.Category == -1) { 
+            //                 // selection will be appliedonly to the labels without category, so that hidden
                             
-                            //labels preserve their state
+            //                //labels preserve their state
 
-                            // Get the shape index associated with the label
-                            int shapeIndex = 0;
-                            mataAirShapefile.PointInShape(shapeIndex,(int)label.x, label.y);
+            //                // Get the shape index associated with the label
+            //                int shapeIndex = 0;
+            //                mataAirShapefile.PointInShape(shapeIndex,(int)label.x, label.y);
 
-                            // Select the shape
-                            if (shapeIndex >= 0)
-                            {
-                                // Clear the previously selected shapes
-                                //for ( int j = 0 ; j<mataAirShapefile.NumShapes; j++) {
-                                //    mataAirShapefile.ShapeSelected[i] = false;
-                                //}
+            //                // Select the shape
+            //                if (shapeIndex >= 0)
+            //                {
+            //                    // Clear the previously selected shapes
+            //                    //for ( int j = 0 ; j<mataAirShapefile.NumShapes; j++) {
+            //                    //    mataAirShapefile.ShapeSelected[i] = false;
+            //                    //}
 
-                                // Add the current shape index to the SelectedShapes collection
-                                mataAirShapefile.ShapeSelected[shapeIndex] = true;
-
-
-                                //List<int> ls = new List<int>();
-                                //int debitFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
-                                //ls.Add((int)mataAirShapefile.CellValue[debitFieldIndex, shapeIndex]);
+            //                    // Add the current shape index to the SelectedShapes collection
+            //                    mataAirShapefile.ShapeSelected[shapeIndex] = true;
 
 
-                                int debitFieldIndex = mataAirShapefile.Table.FieldIndexByName["debit"];
+            //                    //List<int> ls = new List<int>();
+            //                    //int debitFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
+            //                    //ls.Add((int)mataAirShapefile.CellValue[debitFieldIndex, shapeIndex]);
 
-                                // Calculate the sum of all debit values
-                                double sum = 0;
-                                for (int j = 0; j < mataAirShapefile.NumShapes; j++)
-                                {
-                                    // Get the debit value for the current shape
-                                    double debit = Convert.ToDouble(mataAirShapefile.Table.CellValue[debitFieldIndex, i]);
 
-                                    // Add the debit value to the sum
-                                    sum += debit;
+            //                    int debitFieldIndex = mataAirShapefile.Table.FieldIndexByName["debit"];
+
+            //                    // Calculate the sum of all debit values
+                                
+            //                    for (int j = 0; j < mataAirShapefile.NumShapes; j++)
+            //                    {
+            //                        // Get the debit value for the current shape
+            //                        double debit = Convert.ToDouble(mataAirShapefile.Table.CellValue[debitFieldIndex, i]);
+
+            //                        // Add the debit value to the sum
+            //                        sum += debit;
 
                                  
                                     
-                                }
+            //                    }
+            //                    label.Category = CATEGORY_SELECTED;
 
-                                kryptonRibbonGroupRichTextBox_AnlResult.Text = sum.ToString() + " L/Detik";
-                                label.Category = CATEGORY_SELECTED;
-
-
-
+                               
+                              
 
 
-                                // Refresh the map to show the selected shape
-                                axMap1.Redraw();
-                            }
-                        }
-                    }
-                    axMap1.Redraw();
-                    int dbtFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
-                    //kryptonRibbonGroupRichTextBox_AnlResult.Text = mataAirShapefile.CellValue[dbtFieldIndex,mataAirShapefile.Shap]
 
-                }
-            }
+
+
+            //                    // Refresh the map to show the selected shape
+            //                    axMap1.Redraw();
+            //                }
+                           
+            //            }
+            //            kryptonRibbonGroupRichTextBox_AnlResult.Text = sum.ToString() + " L/Detik";
+            //        }
+            //        axMap1.Redraw();
+            //        int dbtFieldIndex = mataAirShapefile.FieldIndexByName["debit"];
+            //        //kryptonRibbonGroupRichTextBox_AnlResult.Text = mataAirShapefile.CellValue[dbtFieldIndex,mataAirShapefile.Shap]
+
+            //    }
+            //}
         }
 
         private void kryptonRibbonGroupButton_Vol_Click(object sender, EventArgs e)
@@ -742,29 +838,10 @@ namespace PolaPSDAPulauLombokMW
 
         private void kryptonRibbonGroupButton_Clear_Click(object sender, EventArgs e)
         {
-            //for (int i = mataAirShapefile.Labels.Count - 1; i >= 0; i--)
-            //{
-            //    int[] labelParts = null;
-            //    int[] labelShapes = null;
-            //    mataAirShapefile.Labels.get_LabelShape(i, ref labelShapes, ref labelParts);
-
-            //    for (int j = 0; j < labelParts.Length; j++)
-            //    {
-            //        int shapeIndex = labelShapes[j];
-            //        int partIndex = labelParts[j];
-
-            //        if (mataAirShapefile.ShapeSelected[shapeIndex])
-            //        {
-            //            MapWinGIS.Label label = mataAirShapefile.Labels.Label[i, j];
-            //            label.Category = CATEGORY_HIDDEN;
-            //        }
-            //    }
-            //}
-
-            //for (int j = 0; j < mataAirShapefile.NumShapes; j++)
-            //{
-            //    mataAirShapefile.ShapeSelected[j] = false;
-            //}
+            mataAirShapefile.Labels.ClearCategories();
+            addLabelCategory();
+            kryptonRibbonGroupRichTextBox_AnlResult.Text = "Sudah direstart, silahkan..";
+            axMap1.Redraw();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
