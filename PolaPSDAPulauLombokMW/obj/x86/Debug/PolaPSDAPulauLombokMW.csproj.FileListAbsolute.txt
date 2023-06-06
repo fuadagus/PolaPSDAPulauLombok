@@ -28,3 +28,32 @@ C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.PopUpForm.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.CredentialForm.resources
 C:\Users\DELL\Desktop\PolaPSDAPulauLombokMW\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.AddPointForm.resources
+<<<<<<< HEAD
+=======
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.AssemblyReference.cache
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.ResolveComReference.cache
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.exe
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.pdb
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\PolaPSDAPulauLombokMW.exe.config
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\PolaPSDAPulauLombokMW.exe
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\PolaPSDAPulauLombokMW.pdb
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\AxInterop.MapWinGIS.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\Krypton.Ribbon.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\Krypton.Toolkit.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.Core.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.Databases.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.ShapeEditor.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\MWLite.Symbology.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\stdole.dll
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\Krypton.Ribbon.xml
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\Krypton.Toolkit.xml
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.CredentialForm.resources
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.AddPointForm.resources
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.MainForm.resources
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.PopUpForm.resources
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.Properties.Resources.resources
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.GenerateResource.cache
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.CoreCompileInputs.cache
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\obj\x86\Debug\PolaPSDAPulauLombokMW.csproj.CopyComplete
+C:\Github\PolaPSDAPulauLombok-MapWinGIS\PolaPSDAPulauLombokMW\bin\x86\Debug\Interop.MapWinGIS.dll
+>>>>>>> de7ee50 (add project)

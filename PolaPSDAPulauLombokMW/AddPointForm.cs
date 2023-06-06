@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 
+=======
+using MapWinGIS;
+using AxMapWinGIS;
+>>>>>>> de7ee50 (add project)
 namespace PolaPSDAPulauLombokMW
 {
     
@@ -15,9 +20,17 @@ namespace PolaPSDAPulauLombokMW
     {
         private double _x;
         private double _y;
+<<<<<<< HEAD
         public AddPointForm(double x, double y)
         {
             InitializeComponent();
+=======
+        MainForm mainFormObject;
+        public AddPointForm(MainForm mainFormInitialized, double x, double y)
+        {
+            InitializeComponent();
+            mainFormObject = mainFormInitialized;
+>>>>>>> de7ee50 (add project)
             _x = x;
             _y = y;
 
@@ -64,6 +77,52 @@ namespace PolaPSDAPulauLombokMW
            
 
             SavePoint?.Invoke();
+<<<<<<< HEAD
+=======
+            CreatePointShapefile(mainFormObject.axMap1, _x, _y);
+            mainFormObject.axMap1.Redraw();
+            mainFormObject.axMap1.Refresh();
+
+
+        }
+
+        public void CreatePointShapefile(AxMap axMap1, double X, double Y)
+        {
+            //axMap1.Projection = tkMapProjection.PROJECTION_NONE;
+
+            var sf = new Shapefile();
+
+            // MWShapeId field will be added to attribute table
+            bool result = sf.CreateNewWithShapeID("", ShpfileType.SHP_POINT);
+
+            MessageBox.Show("X:" + X.ToString());
+            MessageBox.Show("Y:" + Y.ToString());
+            // creating points and inserting them in the shape
+
+            var pnt = new MapWinGIS.Point();
+                pnt.x = X;
+                pnt.y = Y;
+
+                Shape shp = new Shape();
+                shp.Create(ShpfileType.SHP_POINT);
+
+                int index = 0;
+                shp.InsertPoint(pnt, ref index);
+            mainFormObject.mataAirShapefile.StartEditingShapes();
+            mainFormObject.mataAirShapefile.StartEditingTable();
+            int i = mainFormObject.mataAirShapefile.NumShapes + 1;
+            mainFormObject.mataAirShapefile.EditInsertShape(shp, ref i);
+
+
+            sf.DefaultDrawingOptions.SetDefaultPointSymbol(tkDefaultPointSymbol.dpsStar);
+
+            // adds shapefile to the map
+            //axMap1.AddLayer(sf, true);
+            
+            // save if needed
+            //sf.SaveAs(@"c:\points.shp", null);
+
+>>>>>>> de7ee50 (add project)
         }
     }
 }

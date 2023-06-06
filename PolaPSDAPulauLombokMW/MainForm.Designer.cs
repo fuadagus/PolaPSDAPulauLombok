@@ -60,7 +60,10 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonGroupButton6 = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupSeparator6 = new Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.TabPage_Legend = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
             this.legend1 = new MWLite.Symbology.LegendControl.Legend();
+=======
+>>>>>>> de7ee50 (add project)
             this.kryptonRibbonTab1 = new Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup3 = new Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple14 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
@@ -82,7 +85,10 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonGroupSeparator8 = new Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.kryptonRibbonGroupSeparator9 = new Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.TabPage_Map = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
             this.axMap1 = new AxMapWinGIS.AxMap();
+=======
+>>>>>>> de7ee50 (add project)
             this.kryptonRibbonGroupButton18 = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton19 = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.TabPage_Basemap = new System.Windows.Forms.TabPage();
@@ -173,10 +179,18 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupTriple10 = new Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.KryptonRibbonGroupButton_Help = new Krypton.Ribbon.KryptonRibbonGroupButton();
             this.KryptonRibbonGroupButton_About = new Krypton.Ribbon.KryptonRibbonGroupButton();
+<<<<<<< HEAD
             this.StatusStrip1.SuspendLayout();
             this.TabPage_Legend.SuspendLayout();
             this.TabPage_Map.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
+=======
+            this.axMap1 = new AxMapWinGIS.AxMap();
+            this.legend1 = new MWLite.Symbology.LegendControl.Legend();
+            this.StatusStrip1.SuspendLayout();
+            this.TabPage_Legend.SuspendLayout();
+            this.TabPage_Map.SuspendLayout();
+>>>>>>> de7ee50 (add project)
             this.TabPage_Basemap.SuspendLayout();
             this.TabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).BeginInit();
@@ -187,6 +201,10 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Attribute.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KryptonRibbon1)).BeginInit();
+<<<<<<< HEAD
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
+>>>>>>> de7ee50 (add project)
             this.SuspendLayout();
             // 
             // ToolStripProgressBar1
@@ -308,7 +326,11 @@ namespace PolaPSDAPulauLombokMW
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblXY,
             this.ToolStripProgressBar1});
+<<<<<<< HEAD
             this.StatusStrip1.Location = new System.Drawing.Point(0, 416);
+=======
+            this.StatusStrip1.Location = new System.Drawing.Point(0, 539);
+>>>>>>> de7ee50 (add project)
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
             this.StatusStrip1.Size = new System.Drawing.Size(959, 23);
@@ -365,11 +387,16 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Legend.Location = new System.Drawing.Point(4, 22);
             this.TabPage_Legend.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Legend.Name = "TabPage_Legend";
+<<<<<<< HEAD
             this.TabPage_Legend.Size = new System.Drawing.Size(310, 270);
+=======
+            this.TabPage_Legend.Size = new System.Drawing.Size(310, 393);
+>>>>>>> de7ee50 (add project)
             this.TabPage_Legend.TabIndex = 2;
             this.TabPage_Legend.Text = "Legend";
             this.TabPage_Legend.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // legend1
             // 
             this.legend1.BackColor = System.Drawing.Color.White;
@@ -388,6 +415,8 @@ namespace PolaPSDAPulauLombokMW
             this.legend1.Load += new System.EventHandler(this.legend1_Load);
             this.legend1.VisibleChanged += new System.EventHandler(this.legend1_VisibleChanged);
             // 
+=======
+>>>>>>> de7ee50 (add project)
             // kryptonRibbonTab1
             // 
             this.kryptonRibbonTab1.Groups.AddRange(new Krypton.Ribbon.KryptonRibbonGroup[] {
@@ -489,11 +518,16 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Map.Location = new System.Drawing.Point(4, 22);
             this.TabPage_Map.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Map.Name = "TabPage_Map";
+<<<<<<< HEAD
             this.TabPage_Map.Size = new System.Drawing.Size(630, 270);
+=======
+            this.TabPage_Map.Size = new System.Drawing.Size(630, 393);
+>>>>>>> de7ee50 (add project)
             this.TabPage_Map.TabIndex = 2;
             this.TabPage_Map.Text = "Map";
             this.TabPage_Map.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // axMap1
             // 
             this.axMap1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -508,6 +542,8 @@ namespace PolaPSDAPulauLombokMW
             this.axMap1.SelectBoxFinal += new AxMapWinGIS._DMapEvents_SelectBoxFinalEventHandler(this.axMap1_SelectBoxFinal);
             this.axMap1.ShapeIdentified += new AxMapWinGIS._DMapEvents_ShapeIdentifiedEventHandler(this.axMap1_ShapeIdentified);
             // 
+=======
+>>>>>>> de7ee50 (add project)
             // kryptonRibbonGroupButton18
             // 
             this.kryptonRibbonGroupButton18.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton18.ImageLarge")));
@@ -529,7 +565,11 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Basemap.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Basemap.Name = "TabPage_Basemap";
             this.TabPage_Basemap.Padding = new System.Windows.Forms.Padding(2);
+<<<<<<< HEAD
             this.TabPage_Basemap.Size = new System.Drawing.Size(310, 270);
+=======
+            this.TabPage_Basemap.Size = new System.Drawing.Size(310, 393);
+>>>>>>> de7ee50 (add project)
             this.TabPage_Basemap.TabIndex = 1;
             this.TabPage_Basemap.Text = "Basemap";
             this.TabPage_Basemap.UseVisualStyleBackColor = true;
@@ -607,7 +647,11 @@ namespace PolaPSDAPulauLombokMW
             this.TabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
+<<<<<<< HEAD
             this.TabControl1.Size = new System.Drawing.Size(318, 296);
+=======
+            this.TabControl1.Size = new System.Drawing.Size(318, 419);
+>>>>>>> de7ee50 (add project)
             this.TabControl1.TabIndex = 0;
             // 
             // SplitContainer1
@@ -624,7 +668,11 @@ namespace PolaPSDAPulauLombokMW
             // SplitContainer1.Panel2
             // 
             this.SplitContainer1.Panel2.Controls.Add(this.TabControl2);
+<<<<<<< HEAD
             this.SplitContainer1.Size = new System.Drawing.Size(959, 296);
+=======
+            this.SplitContainer1.Size = new System.Drawing.Size(959, 419);
+>>>>>>> de7ee50 (add project)
             this.SplitContainer1.SplitterDistance = 318;
             this.SplitContainer1.SplitterWidth = 3;
             this.SplitContainer1.TabIndex = 10;
@@ -638,7 +686,11 @@ namespace PolaPSDAPulauLombokMW
             this.TabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl2.Name = "TabControl2";
             this.TabControl2.SelectedIndex = 0;
+<<<<<<< HEAD
             this.TabControl2.Size = new System.Drawing.Size(638, 296);
+=======
+            this.TabControl2.Size = new System.Drawing.Size(638, 419);
+>>>>>>> de7ee50 (add project)
             this.TabControl2.TabIndex = 0;
             // 
             // TabPage_Attribute
@@ -648,7 +700,11 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Attribute.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Attribute.Name = "TabPage_Attribute";
             this.TabPage_Attribute.Padding = new System.Windows.Forms.Padding(2);
+<<<<<<< HEAD
             this.TabPage_Attribute.Size = new System.Drawing.Size(630, 270);
+=======
+            this.TabPage_Attribute.Size = new System.Drawing.Size(630, 393);
+>>>>>>> de7ee50 (add project)
             this.TabPage_Attribute.TabIndex = 1;
             this.TabPage_Attribute.Text = "Attribute";
             this.TabPage_Attribute.UseVisualStyleBackColor = true;
@@ -660,7 +716,11 @@ namespace PolaPSDAPulauLombokMW
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Name = "dataGridView1";
+<<<<<<< HEAD
             this.dataGridView1.Size = new System.Drawing.Size(626, 266);
+=======
+            this.dataGridView1.Size = new System.Drawing.Size(626, 389);
+>>>>>>> de7ee50 (add project)
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -872,7 +932,12 @@ namespace PolaPSDAPulauLombokMW
             this.kryptonRibbonTab_Analyst,
             this.KryptonRibbonTab_Report,
             this.KryptonRibbonTab_Help});
+<<<<<<< HEAD
             this.KryptonRibbon1.SelectedTab = this.KryptonRibbonTab_Edit;
+=======
+            this.KryptonRibbon1.SelectedContext = null;
+            this.KryptonRibbon1.SelectedTab = this.kryptonRibbonTab_Analyst;
+>>>>>>> de7ee50 (add project)
             this.KryptonRibbon1.Size = new System.Drawing.Size(959, 143);
             this.KryptonRibbon1.TabIndex = 8;
             this.KryptonRibbon1.SelectedTabChanged += new System.EventHandler(this.KryptonRibbon1_SelectedTabChanged);
@@ -1039,6 +1104,10 @@ namespace PolaPSDAPulauLombokMW
             // 
             this.kryptonRibbonGroupButton_WaterConsumtion.ImageLarge = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroupButton_WaterConsumtion.ImageLarge")));
             this.kryptonRibbonGroupButton_WaterConsumtion.TextLine1 = "Konsumsi Air";
+<<<<<<< HEAD
+=======
+            this.kryptonRibbonGroupButton_WaterConsumtion.Click += new System.EventHandler(this.kryptonRibbonGroupButton_WaterConsumtion_Click);
+>>>>>>> de7ee50 (add project)
             // 
             // kryptonRibbonGroup13
             // 
@@ -1120,11 +1189,50 @@ namespace PolaPSDAPulauLombokMW
             this.KryptonRibbonGroupButton_About.ImageLarge = ((System.Drawing.Image)(resources.GetObject("KryptonRibbonGroupButton_About.ImageLarge")));
             this.KryptonRibbonGroupButton_About.TextLine1 = "About";
             // 
+<<<<<<< HEAD
+=======
+            // axMap1
+            // 
+            this.axMap1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axMap1.Enabled = true;
+            this.axMap1.Location = new System.Drawing.Point(0, 0);
+            this.axMap1.Name = "axMap1";
+            this.axMap1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMap1.OcxState")));
+            this.axMap1.Size = new System.Drawing.Size(630, 393);
+            this.axMap1.TabIndex = 0;
+            this.axMap1.DblClick += new System.EventHandler(this.axMap1_DblClick);
+            this.axMap1.MouseDownEvent += new AxMapWinGIS._DMapEvents_MouseDownEventHandler(this.axMap1_MouseDownEvent);
+            this.axMap1.SelectBoxFinal += new AxMapWinGIS._DMapEvents_SelectBoxFinalEventHandler(this.axMap1_SelectBoxFinal);
+            this.axMap1.ShapeIdentified += new AxMapWinGIS._DMapEvents_ShapeIdentifiedEventHandler(this.axMap1_ShapeIdentified);
+            // 
+            // legend1
+            // 
+            this.legend1.BackColor = System.Drawing.Color.White;
+            this.legend1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.legend1.Location = new System.Drawing.Point(0, 0);
+            this.legend1.Map = null;
+            this.legend1.Name = "legend1";
+            this.legend1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.legend1.SelectedLayer = -1;
+            this.legend1.ShowGroupFolders = true;
+            this.legend1.ShowLabels = false;
+            this.legend1.Size = new System.Drawing.Size(310, 393);
+            this.legend1.TabIndex = 0;
+            this.legend1.LayerSelected += new MWLite.Symbology.LegendControl.LayerSelected(this.legend1_LayerSelected);
+            this.legend1.LayerVisibleChanged += new MWLite.Symbology.LegendControl.LayerVisibleChanged(this.legend1_LayerVisibleChanged);
+            this.legend1.Load += new System.EventHandler(this.legend1_Load);
+            this.legend1.VisibleChanged += new System.EventHandler(this.legend1_VisibleChanged);
+            // 
+>>>>>>> de7ee50 (add project)
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(959, 439);
+=======
+            this.ClientSize = new System.Drawing.Size(959, 562);
+>>>>>>> de7ee50 (add project)
             this.Controls.Add(this.StatusStrip1);
             this.Controls.Add(this.SplitContainer1);
             this.Controls.Add(this.KryptonRibbon1);
@@ -1135,7 +1243,10 @@ namespace PolaPSDAPulauLombokMW
             this.StatusStrip1.PerformLayout();
             this.TabPage_Legend.ResumeLayout(false);
             this.TabPage_Map.ResumeLayout(false);
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).EndInit();
+=======
+>>>>>>> de7ee50 (add project)
             this.TabPage_Basemap.ResumeLayout(false);
             this.TabPage_Basemap.PerformLayout();
             this.TabControl1.ResumeLayout(false);
@@ -1147,6 +1258,10 @@ namespace PolaPSDAPulauLombokMW
             this.TabPage_Attribute.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KryptonRibbon1)).EndInit();
+<<<<<<< HEAD
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.axMap1)).EndInit();
+>>>>>>> de7ee50 (add project)
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1287,8 +1402,11 @@ namespace PolaPSDAPulauLombokMW
         public Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton_WaterDmnd;
         public Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton_Vol;
         public Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton_WaterConsumtion;
+<<<<<<< HEAD
         public MWLite.Symbology.LegendControl.Legend legend1;
         public AxMapWinGIS.AxMap axMap1;
+=======
+>>>>>>> de7ee50 (add project)
         private Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup13;
         private Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines1;
         private Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton_Clear;
@@ -1297,6 +1415,11 @@ namespace PolaPSDAPulauLombokMW
         private Krypton.Ribbon.KryptonRibbonGroupRichTextBox kryptonRibbonGroupRichTextBox_AnlResult;
         public System.Windows.Forms.DataGridView dataGridView1;
         private Krypton.Ribbon.KryptonRibbonGroupComboBox kryptonRibbonGroupComboBoxQueryLayer1;
+<<<<<<< HEAD
+=======
+        public MWLite.Symbology.LegendControl.Legend legend1;
+        public AxMapWinGIS.AxMap axMap1;
+>>>>>>> de7ee50 (add project)
     }
 }
 

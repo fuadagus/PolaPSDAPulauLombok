@@ -53,6 +53,19 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Reference Include="AxInterop.MapWinGIS, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>obj\x86\Debug\AxInterop.MapWinGIS.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.MapWinGIS, Version=4.9.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>obj\x86\Debug\Interop.MapWinGIS.dll</HintPath>
+    </Reference>
+>>>>>>> de7ee50 (add project)
     <Reference Include="Krypton.Ribbon, Version=70.22.11.312, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <HintPath>..\packages\Krypton.Ribbon.70.22.11.312\lib\net48\Krypton.Ribbon.dll</HintPath>
     </Reference>
@@ -70,6 +83,10 @@
     </Reference>
     <Reference Include="MWLite.Symbology">
       <HintPath>..\..\..\..\..\Program Files (x86)\MapWindow GIS Lite\MWLite.Symbology.dll</HintPath>
+<<<<<<< HEAD
+=======
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+>>>>>>> de7ee50 (add project)
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -1691,6 +1708,7 @@
     <Folder Include="obj\x86\Debug\" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <COMReference Include="AxMapWinGIS">
       <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
       <VersionMajor>4</VersionMajor>
@@ -1708,6 +1726,8 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+=======
+>>>>>>> de7ee50 (add project)
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>

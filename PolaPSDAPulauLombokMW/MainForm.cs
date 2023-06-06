@@ -27,7 +27,10 @@ namespace PolaPSDAPulauLombokMW
         public MainForm()
         {
             InitializeComponent();
+<<<<<<< HEAD
             
+=======
+>>>>>>> de7ee50 (add project)
         }
         int admLayerHandle;
         int geoLayerHandle;
@@ -44,6 +47,10 @@ namespace PolaPSDAPulauLombokMW
         public int shapeIdentifiedIndex;
         public string appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         public int selectedFID;
+<<<<<<< HEAD
+=======
+        string spatialPath;
+>>>>>>> de7ee50 (add project)
         private void SetAllButtonsChecked(KryptonRibbon ribbon, bool isChecked)
 
         {
@@ -243,6 +250,94 @@ namespace PolaPSDAPulauLombokMW
             axMap1.Redraw();
         }
 
+<<<<<<< HEAD
+=======
+
+        public void minimalDistance(AxMap axMap1, string dataPath, ToolStripStatusLabel label)
+        {
+            axMap1.Projection = tkMapProjection.PROJECTION_NONE;
+            axMap1.GrabProjectionFromData = true;
+
+            string filename1 = dataPath + "Sungai\\Sungai.shp";
+            string filename2 = dataPath + "Sungai\\Bangunan.shp";
+
+            if (!File.Exists(filename1) || !File.Exists(filename2))
+            {
+                MessageBox.Show("The necessary files (waterways.shp, building.shp) are missing: " + dataPath);
+            }
+            else
+            {
+                Shapefile sfRivers = new Shapefile();
+                sfRivers.Open(filename1, null);
+
+                Utils utils = new Utils();
+                sfRivers.DefaultDrawingOptions.LineColor = utils.ColorByName(tkMapColor.Blue);
+                sfRivers.DefaultDrawingOptions.LineWidth = 5.0f;
+
+                Shapefile sfBuildings = new Shapefile();
+                sfBuildings.Open(filename2, null);
+
+                // adds a field in the table
+                Field field = new Field();
+                field.Name = "RiverDist";
+                field.Type = FieldType.DOUBLE_FIELD;
+                field.Precision = 10;
+
+                int fieldIndex = sfBuildings.NumFields;
+                sfBuildings.StartEditingShapes(true, null);
+                sfBuildings.EditInsertField(field, ref fieldIndex, null);
+
+                ShapefileCategory ct = sfBuildings.Categories.Add("Named buildings");
+                ct.Expression = "[Name] <> \"\"";
+                sfBuildings.Categories.ApplyExpressions();
+
+                sfRivers.StartEditingShapes(false, null);
+                for (int i = 0; i < sfBuildings.NumShapes; i++)
+                {
+                    if (sfBuildings.ShapeCategory[i] == 0)
+                    {
+                        label.Text = "Processing building: " + (i + 1) + " / " + sfBuildings.NumShapes;
+                        Application.DoEvents();
+
+                        Shape shp = sfBuildings.Shape[i];
+                        double minDist = Double.MaxValue;
+
+                        for (int j = 0; j < sfRivers.NumShapes; j++)
+                        {
+                            Shape shp2 = sfRivers.Shape[j];
+                            double distance = shp.Distance(shp2);
+                            if (distance < minDist)
+                                minDist = distance;
+                        }
+
+                        if (minDist != Double.MaxValue)
+                            sfBuildings.EditCellValue(fieldIndex, i, minDist);
+                    }
+                    else
+                    {
+                        sfBuildings.EditCellValue(fieldIndex, i, 0.0);
+                    }
+                }
+                sfRivers.StopEditingShapes(false, true, null);
+
+                sfBuildings.Categories.Generate(fieldIndex, tkClassificationType.ctNaturalBreaks, 8);
+                ColorScheme scheme = new ColorScheme();
+                scheme.SetColors2(tkMapColor.Blue, tkMapColor.Yellow);
+                sfBuildings.Categories.ApplyColorScheme(tkColorSchemeType.ctSchemeGraduated, scheme);
+
+                sfBuildings.Labels.Generate("[Name] + \"\n\" + [RiverDist] + \" m\"", tkLabelPositioning.lpCentroid, true);
+                sfBuildings.Labels.TextRenderingHint = tkTextRenderingHint.SystemDefault;
+
+                sfBuildings.VisibilityExpression = "[Name] <> \"\"";
+
+                axMap1.AddLayer(sfRivers, true);
+                axMap1.AddLayer(sfBuildings, true);
+
+                label.Text = "";
+            }
+        }
+
+>>>>>>> de7ee50 (add project)
         private void Form1_Load(object sender, EventArgs e)
         {
             axMap1.Clear();
@@ -255,7 +350,11 @@ namespace PolaPSDAPulauLombokMW
 
             string resourcesPath = Path.Combine(appDir, "Resources");
             string DBPath = Path.Combine(resourcesPath, "database");
+<<<<<<< HEAD
             string spatialPath = Path.Combine(resourcesPath, "database\\Spatial");
+=======
+            spatialPath = Path.Combine(resourcesPath, "database\\Spatial");
+>>>>>>> de7ee50 (add project)
             string admSHPPath = Path.Combine(spatialPath, "Administrasi\\administrasi.shp");
             string geoSHPPath = Path.Combine(spatialPath, "Geologi\\geologi.shp");
             string mataAirSHPPath = Path.Combine(spatialPath, "SebaranMataAir\\sebaran_mata_air.shp");
@@ -752,6 +851,10 @@ namespace PolaPSDAPulauLombokMW
         private void axMap1_DblClick(object sender, EventArgs e)
         {
             
+<<<<<<< HEAD
+=======
+            
+>>>>>>> de7ee50 (add project)
             if (axMap1.CursorMode == tkCursorMode.cmAddShape)
             {
                 MapWinGIS.Shapefile pointShapefile = new MapWinGIS.Shapefile();
@@ -774,7 +877,11 @@ namespace PolaPSDAPulauLombokMW
                 axMap1.AddLayer(pointShapefile, true);
                 
 
+<<<<<<< HEAD
                 AddPointForm addPointForm = new AddPointForm(axMap1.Longitude, axMap1.Latitude);
+=======
+                AddPointForm addPointForm = new AddPointForm(this, axMap1.Longitude, axMap1.Latitude);
+>>>>>>> de7ee50 (add project)
                 addPointForm.SavePoint += AddPointForm_SavePoint;
                 addPointForm.Show();
               
@@ -921,5 +1028,15 @@ namespace PolaPSDAPulauLombokMW
         {
            
         }
+<<<<<<< HEAD
+=======
+
+        private void kryptonRibbonGroupButton_WaterConsumtion_Click(object sender, EventArgs e)
+        {
+            SetAllButtonsChecked(KryptonRibbon1, false);
+            KryptonRibbonGroupButton_AddPoint.Checked = true;
+            minimalDistance(axMap1, spatialPath, lblXY);
+        }
+>>>>>>> de7ee50 (add project)
     }
 }
